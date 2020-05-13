@@ -375,7 +375,6 @@
     googletag.pubads().setTargeting("articleId", kmklabs.gtm.articleId.toString());
     googletag.pubads().setTargeting("pagingNum", typeof (pageParam = kmklabs.gtm.pageParam && kmklabs.gtm.pageParam.toString()) === "undefined" ? "false" : pageParam );
     googletag.pubads().setTargeting("newExp",typeof (newExp = kmklabs.gtm.new_exp) === "undefined" ? "false" : kmklabs.gtm.new_exp.toString());
-
     /* END TARGETING BLOCK */
 
     googletag.pubads().setCentering(true);
