@@ -1469,6 +1469,35 @@ console.log('%c GPT '+gpt_gam_site+' '+gpt_gam_ver ,'color:#d3d3d3; font-size:25
                                 return v.toLowerCase();
                               });
                             },
+    renderLfloat        :   function () {
+                              googletag.defineOutOfPageSlot('/36504930/www.merdeka.com/dfp-lFloating', 'div-gpt-ad-merdeka-lFloating-oop').addService(googletag.pubads());
+                              googletag.cmd.push(function() {
+                                googletag.display('div-gpt-ad-merdeka-lFloating-oop');
+                              });
+                            },
+    dfp_getCookieValue  :   function (e) {
+                              var n = document.cookie,
+                              t = n.indexOf(" " + e + "=");
+                              if (-1 == t && (t = n.indexOf(e + "=")), -1 == t) n = null;
+                              else {
+                                t = n.indexOf("=", t) + 1;
+                                var i = n.indexOf(";", t); - 1 == i && (i = n.length), n = unescape(n.substring(t, i))
+                              }
+                              return n
+                            },
+    extractDomain       :   function () {
+                              var e, n = window.location.href;
+                              return e = n.indexOf("://") > -1 ? n.split("/")[2] : n.split("/")[0], e = e.split(":")[0]
+                            },
+    dfp_setCookie       :   function (e, n, t, i) {
+                              n = escape(n);
+                              var o = this.extractDomain();
+                              if ("" == i) {
+                                var r = new Date;
+                                r.setHours(r.getHours(), r.getMinutes() + 10), i = r.toGMTString()
+                              }
+                              "" != t && (t = ";Path=" + t), document.cookie = e + "=" + n + ";expires=" + i + t + ";Domain=" + o
+                            },
     userAgent           :   navigator.userAgent.toLowerCase(),
     GAMisTablet   :   /(ipad|tablet|(android(?!.*mobile))|(windows(?!.*phone)(.*touch))|kindle|playbook|silk|(puffin(?!.*(IP|AP|WP))))/.test(this.userAgent)
   }
@@ -1728,41 +1757,6 @@ console.log('%c GPT '+gpt_gam_site+' '+gpt_gam_ver ,'color:#d3d3d3; font-size:25
 				}
 			});
 
-      /*DEPENDECIES FUNCTIONs*/
-			function dfp_getCookieValue(e) {
-				var n = document.cookie,
-					t = n.indexOf(" " + e + "=");
-				if (-1 == t && (t = n.indexOf(e + "=")), -1 == t) n = null;
-				else {
-					t = n.indexOf("=", t) + 1;
-					var i = n.indexOf(";", t); - 1 == i && (i = n.length), n = unescape(n.substring(t, i))
-				}
-				return n
-			}
-
-			function dfp_setCookie(e, n, t, i) {
-				n = escape(n);
-				var o = extractDomain();
-				if ("" == i) {
-					var r = new Date;
-					r.setHours(r.getHours(), r.getMinutes() + 10), i = r.toGMTString()
-				}
-				"" != t && (t = ";Path=" + t), document.cookie = e + "=" + n + ";expires=" + i + t + ";Domain=" + o
-			}
-
-			function extractDomain() {
-				var e, n = window.location.href;
-				return e = n.indexOf("://") > -1 ? n.split("/")[2] : n.split("/")[0], e = e.split(":")[0]
-			}
-
-			/* set lfloat appearance */
-			function renderLfloat() {
-				googletag.defineOutOfPageSlot('/36504930/www.merdeka.com/dfp-lFloating', 'div-gpt-ad-merdeka-lFloating-oop').addService(googletag.pubads());
-				googletag.cmd.push(function() {
-					googletag.display('div-gpt-ad-merdeka-lFloating-oop');
-				});
-			}
-
 			if (iOS) {
 				if (typeof localStorage['data'] === "undefined") {
 					localStorage['data'] = JSON.stringify({
@@ -1774,31 +1768,31 @@ console.log('%c GPT '+gpt_gam_site+' '+gpt_gam_ver ,'color:#d3d3d3; font-size:25
 						localStorage['data'] = JSON.stringify({
 							dfp_lfloatCookie: 2
 						});
-						renderLfloat();
+						GAMLibrary.renderLfloat();
 					} else if (data.dfp_lfloatCookie_test == 2) {
 						localStorage['data'] = JSON.stringify({
 							dfp_lfloatCookie: 3
 						});
-						renderLfloat();
+						GAMLibrary.renderLfloat();
 					}
 				}
 			} else {
-				var lfloatCookie = dfp_getCookieValue("dfp_lfloatCookie");
+				var lfloatCookie = GAMLibrary.dfp_getCookieValue("dfp_lfloatCookie");
 				if (parseInt(lfloatCookie) == 0 || lfloatCookie == null) {
 
-					dfp_setCookie("dfp_lfloatCookie", 1);
+					GAMLibrary.dfp_setCookie("dfp_lfloatCookie", 1);
 
 				} else if (parseInt(lfloatCookie) == 1) {
 
-					dfp_setCookie("dfp_lfloatCookie", 2);
+					GAMLibrary.dfp_setCookie("dfp_lfloatCookie", 2);
 
-					renderLfloat();
+					GAMLibrary.renderLfloat();
 
 				} else if (parseInt(lfloatCookie) == 2) {
 
-					dfp_setCookie("dfp_lfloatCookie", 3);
+					GAMLibrary.dfp_setCookie("dfp_lfloatCookie", 3);
 
-					renderLfloat();
+					GAMLibrary.renderLfloat();
 				}
 			}
 			/* End set lfloat appearance */
