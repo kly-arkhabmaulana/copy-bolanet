@@ -14,7 +14,9 @@ String.prototype.klyFiltering = function(delimiter) {
 
 window.GAMLibrary = {};
 window.GAMLibrary = {
-    documentMeta       :   function (a) {
+    dfpBillboard        :   '/36504930/www.bola.net/dfp-billboard',
+    gamImmersive        :   '/36504930/www.bola.net/dfp-immersive',
+    documentMeta        :   function (a) {
                                 var o = "",
                                 e = document.getElementsByTagName("meta");
                                 if (e)
@@ -30,7 +32,9 @@ window.GAMLibrary = {
                                 return arr.map(function(v,i){
                                     return v.toLowerCase();
                                 });
-                            }
+                            },
+    userAgent           :   navigator.userAgent.toLowerCase(),
+    GAMisTablet         :   /(ipad|tablet|(android(?!.*mobile))|(windows(?!.*phone)(.*touch))|kindle|playbook|silk|(puffin(?!.*(IP|AP|WP))))/.test(this.userAgent)                            
 }
 
 function document_keywords() {
@@ -105,38 +109,40 @@ if(boxRelatedEl){
   boxRelatedEl.insertAdjacentElement('beforeEnd',contextualEl);
   contextualExists = (boxRelatedEl.querySelector('#'+contextualEl.id)) ? !0 : 0;
 }
-/* END CREATE CONTEXTUAL ELEMENT */  
-
-var blackListWords = new Array('matcont', 'aduhai', 'kelamin', 'vital', 'anal', 'belahan', 'bercinta', 'bergairah', 'gairah', 'intim', 'bikini', 'bokong', 'boob', 'bra', 'bugil', 'celana', 'ciuman', 'cleavage', 'dada', 'dewasa', 'diremas', 'doggie', 'ejakulasi', 'ereksi', 'erotis', 'foreplay', 'kiss', 'seks', 'gangbang', 'horny', 'hot', 'kamasutra', 'keperawanan', 'perawan', 'kondom', 'kontrasepsi', 'libido', 'lingerie', 'masturbasi', 'mature', 'menggairahkan', 'menggoda', 'mesra', 'miss-v', 'mr-p', 'nakal', 'naughty', 'nipple', 'nipples', 'onani', 'oral', 'oral seks', 'organ', 'orgasme', 'paha', 'pantat', 'panties', 'payudara', 'pelecehan', 'telanjang', 'penetrasi', 'penis', 'perkosa', 'perkosaan', 'pole', 'porno', 'pornoaksi', 'pornografi', 'telentang', 'provokatif', 'putting', 'ranjang', 'sex', 'penetratif', 'seksi', 'seksual', 'sensual', 'seronok', 'doll', 'toys', 'skandal', 'sperma', 'striptease', 'striptis', 'syur', 'terangsang', 'tiduri', 'topless', 'vagina', 'vibrator', 'lendir', 'prostitusi', 'homoseks', 'meraba-raba', 'mesum', 'memerkosa', 'rudapaksa', 'kemaluan', 'kasus asusila', 'pemerkosaan', 'hubungan seksual', 'hubungan intim', 'video porno', 'berita hoax', 'ternyata hoax', 'ahed tamimi', 'konflik palestina israel', 'konflik suriah', 'ujaran kebencian', 'g30s', 'kediktatoran arab saudi', 'konflik palestina-israel', 'fpi', 'penembakan', 'pelecehan seksual', 'tips seks', 'komunitas swinger', 'fenomena kelainan seksual', 'penyimpangan seks', 'posisi seks', 'obat kuat', 'bentuk payudara', 'implan payudara', 'chat firza-rizieq', 'anarkisme suporter sepakbola', 'bentrok suporter', 'pengeroyokan', 'penganiayaan', 'begal motor', 'kekerasan pada wartawan', 'pemerkosaan anak', 'pencabulan', 'bentrokan warga', 'bentrokan', 'kasus narkoba', 'akibat merokok', 'bahaya merokok', 'berhenti merokok', 'cara berhenti merokok', 'efek berhenti merokok', 'larangan merokok', 'tips berhenti merokok', 'rokok elektrik', 'pilpres 2019', 'koalisi pilpres 2019', 'koalisi prabowo', 'koalisi jokowi', 'prabowo-sandiaga', 'ratna sarumpaet', 'capres jokowi', 'capres prabowo', 'kebohongan ratna sarumpaet', 'prabowo subianto', 'jemaah ansharut daulah', 'aliran sesat', 'lia eden', 'kisah mualaf', 'penistaan agama', 'suporter tewas', 'gempa palu', 'gempa donggala', 'gempa sulawesi tengah', 'pembunuhan', 'tsunami palu', 'penemuan mayat', 'lion air jatuh di karawang', 'lion air jatuh', 'pembunuhan sadis', 'lion air hilang kontak', 'pesawat jatuh', 'pesawat hilang kontak', 'kecelakaan', 'kapal tenggelam di danau toba', 'kecelakaan bus', 'kapal tenggelam', 'kasus tabrak lari', 'bunuh diri', 'perselingkuhan', 'kisah perselingkuhan', 'razia pasangan mesum', 'seks bebas', 'gangguan jiwa', 'tes keperawanan', 'kontroversi hukuman mati', 'stres dan depresi', 'ahok gugat cerai veronica tan', 'Kanker', 'Impotensi', 'merokok', 'Perokok', 'Rokok', 'tembakau', 'Pelanggaran', 'Tablet', 'Overdosis', 'Jantung', 'Stroke', 'Cancer', 'Narkoba', 'Djarum', 'Ganja', 'BNN', 'Obesitas', 'Osteoporosis', 'Corona', 'Corona di indonesia', 'virus corona', 'virus-corona', 'covid-19', 'wabah corona', 'menewaskan', 'menewaskan orang', 'mengancam nyawa', 'meninggal', 'meninggal dunia', 'orang mati', 'orang tewas', 'pemakaman', 'petugas penyelamat', 'telah meninggal', 'terbunuh', 'tewas', 'tewaskan', 'tim penyelamat', 'wanita meninggal', 'autopsi', 'belasungkawa', 'bencana', 'bencana besar', 'bunuh orang', 'darurat bencana', 'dilaporkan tewas', 'dimakamkan', 'dipastikan tewas', 'ditemukan mati', 'ditemukan tewas', 'hilangnya nyawa', 'identitas korban', 'inalillahi', 'jasad korban', 'jasadnya', 'jenasah wanita', 'jenazah', 'jenazah pria', 'jenazah teridentifikasi', 'jasad', 'kehilangan hidupnya', 'kehilangan nyawa', 'kehilangan nyawanya', 'kematian', 'korban', 'korban jiwa', 'korban meninggal', 'korban tewas', 'mati', 'mayat', 'mayat korban', 'membunuh', 'membunuh istrinya', 'membunuh mereka', 'membunuh suaminya', 'menemui ajal', 'mengalami koma', 'menghembuskan nafas terakhir', 'menimbulkan korban', 'meninggal akibat sakit', 'menyebabkan kematian', 'meregang nyawa', 'meregggut nyawa', 'modar', 'nyawa hilang', 'nyawa melayang', 'penyebab kematian', 'tak bernyawa', 'tak sadarkan diri', 'terkapar', 'tidak bernyawa', 'tutup usia', 'wafat', 'kematian virus', 'kematian wabah', 'korban terinfeksi', 'virus menyerang', 'merenggut nyawa', 'pelayat', 'hilangkan nyawa', 'renggut nyawa', 'wabah', 'keadaan kritis', 'kehilangan darah', 'merenggut jiwa', 'telan nyawa', 'menelan nyawa', 'memakan nyawa', 'dinyatakan meninggal', 'nyawa tak tertolong', 'penyakit', 'sakit pernapasan', 'sesak', 'korona', 'corona', 'odp', 'pdp', 'virus', 'rumah sakit', 'Covid-19', 'virus korona', 'positif korona', 'COVID-19', 'terjangkit COVID-19', 'terinfeksi virus corona'),
-urlPath = document.URL,
-urlArray = urlPath.split("/"),
-dfp_Channel = window.location.host,
-alowedPath = new Array("trending", "bola_eropa", "bola_dunia", "bola_indonesia", "bolatainment", "jadwal_skor", "ragam", "gallery", "olahraga_lain"),
-matureKeyword = "21 ke atas",
-urlSlot = "",
-nLevel = 1,
-isMatcont = !1,
-gam_billboard,
-gam_topfrm,
-gam_bottomfrm,
-gam_skinad,
-dfp_Article = urlArray[urlArray.length - 1];
-urlArray.forEach(function(a) {
-	GAMLibrary.inArray(a, alowedPath) && nLevel <= 1 && (urlSlot += a + "/", nLevel++)
-});
-	
-var iOS = !!navigator.platform && /iPad|iPhone|iPod/.test(navigator.platform);
-
-if (!crtg_content) var crtg_content = "";
-
-if (!blackListWords) blackListWords = new Array("matcont");
-
-blackListWords = GAMLibrary.arrToLowerCase(blackListWords);
+/* END CREATE CONTEXTUAL ELEMENT */
 
 var elImmersiveContainer = document.createElement('div');
 elImmersiveContainer.setAttribute('id','div-gpt-ad-bola-immersive-oop');
 if(document.body.appendChild(elImmersiveContainer)){
 	googletag.cmd.push(function() {
+        var urlPath = document.URL,
+        isMatcont = false,
+        blackListWords = new Array('matcont', 'aduhai', 'kelamin', 'vital', 'anal', 'belahan', 'bercinta', 'bergairah', 'gairah', 'intim', 'bikini', 'bokong', 'boob', 'bra', 'bugil', 'celana', 'ciuman', 'cleavage', 'dada', 'dewasa', 'diremas', 'doggie', 'ejakulasi', 'ereksi', 'erotis', 'foreplay', 'kiss', 'seks', 'gangbang', 'horny', 'hot', 'kamasutra', 'keperawanan', 'perawan', 'kondom', 'kontrasepsi', 'libido', 'lingerie', 'masturbasi', 'mature', 'menggairahkan', 'menggoda', 'mesra', 'miss-v', 'mr-p', 'nakal', 'naughty', 'nipple', 'nipples', 'onani', 'oral', 'oral seks', 'organ', 'orgasme', 'paha', 'pantat', 'panties', 'payudara', 'pelecehan', 'telanjang', 'penetrasi', 'penis', 'perkosa', 'perkosaan', 'pole', 'porno', 'pornoaksi', 'pornografi', 'telentang', 'provokatif', 'putting', 'ranjang', 'sex', 'penetratif', 'seksi', 'seksual', 'sensual', 'seronok', 'doll', 'toys', 'skandal', 'sperma', 'striptease', 'striptis', 'syur', 'terangsang', 'tiduri', 'topless', 'vagina', 'vibrator', 'lendir', 'prostitusi', 'homoseks', 'meraba-raba', 'mesum', 'memerkosa', 'rudapaksa', 'kemaluan', 'kasus asusila', 'pemerkosaan', 'hubungan seksual', 'hubungan intim', 'video porno', 'berita hoax', 'ternyata hoax', 'ahed tamimi', 'konflik palestina israel', 'konflik suriah', 'ujaran kebencian', 'g30s', 'kediktatoran arab saudi', 'konflik palestina-israel', 'fpi', 'penembakan', 'pelecehan seksual', 'tips seks', 'komunitas swinger', 'fenomena kelainan seksual', 'penyimpangan seks', 'posisi seks', 'obat kuat', 'bentuk payudara', 'implan payudara', 'chat firza-rizieq', 'anarkisme suporter sepakbola', 'bentrok suporter', 'pengeroyokan', 'penganiayaan', 'begal motor', 'kekerasan pada wartawan', 'pemerkosaan anak', 'pencabulan', 'bentrokan warga', 'bentrokan', 'kasus narkoba', 'akibat merokok', 'bahaya merokok', 'berhenti merokok', 'cara berhenti merokok', 'efek berhenti merokok', 'larangan merokok', 'tips berhenti merokok', 'rokok elektrik', 'pilpres 2019', 'koalisi pilpres 2019', 'koalisi prabowo', 'koalisi jokowi', 'prabowo-sandiaga', 'ratna sarumpaet', 'capres jokowi', 'capres prabowo', 'kebohongan ratna sarumpaet', 'prabowo subianto', 'jemaah ansharut daulah', 'aliran sesat', 'lia eden', 'kisah mualaf', 'penistaan agama', 'suporter tewas', 'gempa palu', 'gempa donggala', 'gempa sulawesi tengah', 'pembunuhan', 'tsunami palu', 'penemuan mayat', 'lion air jatuh di karawang', 'lion air jatuh', 'pembunuhan sadis', 'lion air hilang kontak', 'pesawat jatuh', 'pesawat hilang kontak', 'kecelakaan', 'kapal tenggelam di danau toba', 'kecelakaan bus', 'kapal tenggelam', 'kasus tabrak lari', 'bunuh diri', 'perselingkuhan', 'kisah perselingkuhan', 'razia pasangan mesum', 'seks bebas', 'gangguan jiwa', 'tes keperawanan', 'kontroversi hukuman mati', 'stres dan depresi', 'ahok gugat cerai veronica tan', 'Kanker', 'Impotensi', 'merokok', 'Perokok', 'Rokok', 'tembakau', 'Pelanggaran', 'Tablet', 'Overdosis', 'Jantung', 'Stroke', 'Cancer', 'Narkoba', 'Djarum', 'Ganja', 'BNN', 'Obesitas', 'Osteoporosis', 'Corona', 'Corona di indonesia', 'virus corona', 'virus-corona', 'covid-19', 'wabah corona', 'menewaskan', 'menewaskan orang', 'mengancam nyawa', 'meninggal', 'meninggal dunia', 'orang mati', 'orang tewas', 'pemakaman', 'petugas penyelamat', 'telah meninggal', 'terbunuh', 'tewas', 'tewaskan', 'tim penyelamat', 'wanita meninggal', 'autopsi', 'belasungkawa', 'bencana', 'bencana besar', 'bunuh orang', 'darurat bencana', 'dilaporkan tewas', 'dimakamkan', 'dipastikan tewas', 'ditemukan mati', 'ditemukan tewas', 'hilangnya nyawa', 'identitas korban', 'inalillahi', 'jasad korban', 'jasadnya', 'jenasah wanita', 'jenazah', 'jenazah pria', 'jenazah teridentifikasi', 'jasad', 'kehilangan hidupnya', 'kehilangan nyawa', 'kehilangan nyawanya', 'kematian', 'korban', 'korban jiwa', 'korban meninggal', 'korban tewas', 'mati', 'mayat', 'mayat korban', 'membunuh', 'membunuh istrinya', 'membunuh mereka', 'membunuh suaminya', 'menemui ajal', 'mengalami koma', 'menghembuskan nafas terakhir', 'menimbulkan korban', 'meninggal akibat sakit', 'menyebabkan kematian', 'meregang nyawa', 'meregggut nyawa', 'modar', 'nyawa hilang', 'nyawa melayang', 'penyebab kematian', 'tak bernyawa', 'tak sadarkan diri', 'terkapar', 'tidak bernyawa', 'tutup usia', 'wafat', 'kematian virus', 'kematian wabah', 'korban terinfeksi', 'virus menyerang', 'merenggut nyawa', 'pelayat', 'hilangkan nyawa', 'renggut nyawa', 'wabah', 'keadaan kritis', 'kehilangan darah', 'merenggut jiwa', 'telan nyawa', 'menelan nyawa', 'memakan nyawa', 'dinyatakan meninggal', 'nyawa tak tertolong', 'penyakit', 'sakit pernapasan', 'sesak', 'korona', 'corona', 'odp', 'pdp', 'virus', 'rumah sakit', 'Covid-19', 'virus korona', 'positif korona', 'COVID-19', 'terjangkit COVID-19', 'terinfeksi virus corona'),
+        /* POPULATE META DATA KEYWORDS */
+        dfp_pageTitle = kly.article && kly.article.title.klyFiltering(' '),
+        dfp_titles = (typeof dfp_pageTitle !== 'undefined') ? dfp_pageTitle.toString().klyFiltering("-") : '',
+        dfp_pageKeywords = GAMLibrary.documentMeta("keywords"),
+        dfp_keyword = dfp_pageKeywords.klyFiltering(","),
+        /* POPULATE META DATA DESC */
+        dfp_pageDesc = GAMLibrary.documentMeta("description"),
+        dfp_desc = dfp_pageDesc.klyFiltering(","),
+        tagForAds = kly && (tagForAds = kly.gtm.tag.klyFiltering("|")),
+        dfp_keywords = dfp_keyword.concat(dfp_titles, dfp_desc, tagForAds),
+        gam_billboard,gam_topfrm,gam_bottomfrm,gam_skinad;
+        /*MATURE CONTENT DEFINED VAR & SET TARGETTING*/
+        if (!blackListWords) {
+            var blackListWords = new Array('matcont');
+        }
+        
+        //search from keyword, desc & tag meta data
+        blackListWords = GAMLibrary.arrToLowerCase(blackListWords);
+        dfp_keywords.forEach(function(sKeyword) {
+            tagForAds.push(sKeyword);
+            if (GAMLibrary.inArray(sKeyword, blackListWords)) {
+                isMatcont = true;
+            }
+        });
+
 		function a(a, o, e, t) {
 			o = escape(o);
 			var g, l = ((g = window.location.href).indexOf("://") > -1 ? g.split("/")[2] : g.split("/")[0]).split(":")[0];
@@ -147,31 +153,8 @@ if(document.body.appendChild(elImmersiveContainer)){
 			"" != e && (e = ";Path=" + e), document.cookie = a + "=" + o + ";expires=" + t + e + ";Domain=" + l
 		}
 
-		var oop_dfpBillboard = '/36504930/www.bola.net/dfp-billboard',
-		oop_gamImmersive = '/36504930/www.bola.net/dfp-immersive',
 		/* DEFINE IMMERSIVE TAG - DO NOT CHANGE THE SLOT ORDER, IMMERSIVE ALWAYS ON THE 1st POSITION - */
-        gam_immersive = googletag.defineOutOfPageSlot(oop_gamImmersive, 'div-gpt-ad-bola-immersive-oop').addService(googletag.pubads()),
-        dfp_pageTitle = urlArray[urlArray.length - 1],
-		dfp_titles = dfp_pageTitle.klyFiltering("-"),
-		dfp_pageKeywords = document_keywords(),
-		dfp_keyword = dfp_pageKeywords.klyFiltering(","),
-        dfp_pageDesc = GAMLibrary.documentMeta("description"),
-        dfp_desc = dfp_pageDesc.klyFiltering(","),
-        pageType = "FrontPage",
-        dfp_Rubric = dfp_Channel + " - " + (urlSlot == "" ? "homepage" : urlSlot.replace('/', '')),
-        tagForAds = (typeof window.kly !== 'undefined') ? kly.gtm.tag.klyFiltering("|") : [],
-        dfp_keywords = dfp_keyword.concat(dfp_titles, dfp_desc, tagForAds);
-
-        var userAgent = navigator.userAgent.toLowerCase();
-        const GAMisTablet = /(ipad|tablet|(android(?!.*mobile))|(windows(?!.*phone)(.*touch))|kindle|playbook|silk|(puffin(?!.*(IP|AP|WP))))/.test(userAgent);
-
-        dfp_keywords.forEach(function(sKeyword) {
-            tagForAds.push(sKeyword);
-			if (GAMLibrary.inArray(sKeyword.trim(), blackListWords)) {
-				isMatcont = true;
-			}
-        });
-        
+        var gam_immersive = googletag.defineOutOfPageSlot(GAMLibrary.gamImmersive, 'div-gpt-ad-bola-immersive-oop').addService(googletag.pubads());
 		googletag.defineSlot("/36504930/www.bola.net/dfp-sc1", [300, 600], "div-gpt-ad-bola-sc1").addService(googletag.pubads()),
 		googletag.defineSlot("/36504930/www.bola.net/dfp-sc2", [300, 250], "div-gpt-ad-bola-sc2").addService(googletag.pubads()),
 		googletag.defineSlot('/36504930/www.bola.net/dfp-lb', [[970, 90],[728, 90],[970, 250]], 'div-gpt-ad-bola-lb').addService(googletag.pubads()).setTargeting("leaderboard_type", ['direct']);
@@ -191,7 +174,7 @@ if(document.body.appendChild(elImmersiveContainer)){
 			
 			if (a.slot == gam_immersive) {
 				if (a.isEmpty) {
-					gam_billboard 	= googletag.defineOutOfPageSlot(oop_dfpBillboard, 'div-gpt-ad-bola-billboard-oop').addService(googletag.pubads());
+					gam_billboard 	= googletag.defineOutOfPageSlot(GAMLibrary.dfpBillboard, 'div-gpt-ad-bola-billboard-oop').addService(googletag.pubads());
 					gam_topfrm 		= googletag.defineOutOfPageSlot("/36504930/www.bola.net/dfp-topfrm", "div-gpt-ad-bola-topfrm-oop").addService(googletag.pubads());
 					gam_bottomfrm 	= googletag.defineOutOfPageSlot("/36504930/www.bola.net/dfp-bottomfrm", "div-gpt-ad-bola-bottomfrm-oop").addService(googletag.pubads());
                     
@@ -200,7 +183,7 @@ if(document.body.appendChild(elImmersiveContainer)){
                     googletag.cmd.push(function() {googletag.display("div-gpt-ad-bola-bottomfrm-oop")});
                     
                     /* EXCLUDE SKINAD IN TABLET */
-					if(!GAMisTablet){
+					if(!GAMLibrary.GAMisTablet){
                         gam_skinad 		= googletag.defineOutOfPageSlot("/36504930/www.bola.net/dfp-skin", "div-gpt-ad-bola-skinad-oop").addService(googletag.pubads());
                         googletag.cmd.push(function() {googletag.display("div-gpt-ad-bola-skinad-oop")});
                         googletag.pubads().refresh([gam_billboard, gam_topfrm, gam_bottomfrm, gam_skinad]);
@@ -212,19 +195,24 @@ if(document.body.appendChild(elImmersiveContainer)){
 			/* END LB AND BILLBOARD RENDERRING */
         });
        
-		if (dfp_Article.length > 0) {
-			pageType = "ReadPage";
-		} else {
-			pageType = (urlSlot == "") ? "FrontPage" : "ChannelPage";
+		/*  START TARGETING BLOCK   */
+        if (isMatcont) { googletag.pubads().setTargeting("isMatcont", ["1"]);}
+        if(typeof Krux !== "undefined"){
+            googletag.pubads().setTargeting('ksg', Krux.segments);
+            googletag.pubads().setTargeting('kuid', Krux.user);
         }
-        googletag.pubads().setTargeting("rubric", [dfp_Rubric]);
-        googletag.pubads().setTargeting("page_url", [dfp_Article]);
-        googletag.pubads().setTargeting("PageType", [pageType]);
-        googletag.pubads().setTargeting("currentUrl", urlPath);   
-        googletag.pubads().setTargeting("domain", dfp_Channel);
-        googletag.pubads().setTargeting("tags", tagForAds);
-        googletag.pubads().setTargeting('ksg', Krux.segments);
-        googletag.pubads().setTargeting('kuid', Krux.user);
+        googletag.pubads().setTargeting("tags",tagForAds);
+        googletag.pubads().setTargeting("currentUrl", urlPath);
+        googletag.pubads().setTargeting("type", kly.gtm.type);
+        googletag.pubads().setTargeting("pageType", kly.pageType);
+        googletag.pubads().setTargeting("channel", kly.gtm.subCategory);
+        googletag.pubads().setTargeting("audience", kly.gtm.audience ? kly.gtm.audience.split("|") : "false");
+        googletag.pubads().setTargeting("isAdvertorial", typeof (isAdvertorial = kly.article && kly.article.isAdvertorial.toString()) === "undefined" ? "false" :  isAdvertorial);   
+        googletag.pubads().setTargeting("isMultipage", typeof (isMultipage = kly.article && kly.article.isMultipage.toString()) === "undefined" ? "false" : isMultipage );
+        googletag.pubads().setTargeting("articleId", kly.gtm.articleId.toString());
+        googletag.pubads().setTargeting("pagingNum", typeof (pageParam = kly.gtm.pageParam && kly.gtm.pageParam.toString()) === "undefined" ? "false" : pageParam );
+        /*  END TARGETING BLOCK   */
+
 		googletag.pubads().setCentering(true);
 		googletag.pubads().enableSingleRequest();
 		googletag.enableServices();
