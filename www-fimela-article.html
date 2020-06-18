@@ -920,6 +920,53 @@ if(fimela.final) { fimela.final(); }
                                       return v.toLowerCase();
                                     });
                                   },
+        create_element        :   function (elID, elAnchor) {
+                                    var newDiv = document.createElement("div");
+                                    newDiv.id = elID;
+                                    (document.getElementById(elAnchor)) && (document.getElementById(elAnchor)).appendChild(newDiv);
+                                    return document.getElementById(elID);
+                                  },
+        insertNative          :   function (doc) {
+                                    var nativeoutId = 1,
+                                    natoutSlotName,
+                                    articleIdx,
+                                    natoutSlots;
+                                    doc.querySelectorAll("div[id^='div-gpt-ad-fimela-nativeOut']").forEach(function(v, k) {
+                                      if (v.id.match(/nativeout/ig)) {
+                                        natoutSlotName = 'div-gpt-ad-fimela-nativeOut-'+nativeoutId+'-'+continuesPage;
+                                        v.setAttribute('id',natoutSlotName)
+                                        natoutSlots = googletag.defineOutOfPageSlot("/36504930/www.fimela.com/dfp-nativeOut-slot" + nativeoutId, v.id);
+                                        natoutSlots.addService(googletag.pubads());
+                                        googletag.display(v.id);
+                                        googletag.pubads().refresh([natoutSlots]);
+                                        nativeoutId++;
+                                      }
+                                    });
+                                  },
+        initiateNativeContainer :   function () {
+                                      var articleElement = document.querySelector('.container-article'),
+                                      relArticle1 = document.querySelectorAll('.read-page--article-triumvirate > article');
+                                      gamObserver = new MutationObserver(function(event) {
+                                        event.forEach(function(mutation) {
+                                          if (mutation.addedNodes.length && mutation.addedNodes[0].nodeName == "ARTICLE") {
+                                            continuesPage++;
+                                            GAMLibrary.insertNative(mutation.addedNodes[0]);
+                                          }
+                                        })
+                                      });
+                                      gamObserver.observe(articleElement, {
+                                        childList: true,
+                                        attributes: true,
+                                        subtree: true,
+                                        attributeOldValue: true,
+                                        type: true
+                                        //characterData: false,
+                                        //characterDataOldValue: false
+                                      });
+                                      if (relArticle1.length === 1 || continuesPage === 1) {
+                                        GAMLibrary.insertNative(document);
+                                      }
+                                    },
         userAgent             :   navigator.userAgent.toLowerCase(),
         GAMisTablet           :   /(ipad|tablet|(android(?!.*mobile))|(windows(?!.*phone)(.*touch))|kindle|playbook|silk|(puffin(?!.*(IP|AP|WP))))/.test(this.userAgent)
       }
@@ -1070,73 +1117,8 @@ if(fimela.final) { fimela.final(); }
       googletag.cmd.push(function() {googletag.display('div-gpt-ad-fimela-highlight-1');});
       googletag.cmd.push(function() {googletag.display('div-gpt-ad-fimela-highlight-2');});
     
-      /*create ads div container on anchor div*/
-      function create_element(elID, elAnchor) {
-          var newDiv = document.createElement("div");
-          newDiv.id = elID;
-          (document.getElementById(elAnchor)) && (document.getElementById(elAnchor)).appendChild(newDiv);
-
-          return document.getElementById(elID);
-      }
-
-      /*Get element position offset*/
-      function getOffset(el) {
-          el = el.getBoundingClientRect();
-          return {
-              left: el.left + window.scrollX,
-              top: el.top + window.scrollY
-          }
-      }
-    
       /* TRIGGER INFEED AND NATIVEOUT CONTAINER */
-      window.addEventListener("load", initiateNativeContainer);
-    
-      function initiateNativeContainer() {
-              var articleElement = document.querySelector('.container-article'),
-                  relArticle1 = document.querySelectorAll('.read-page--article-triumvirate > article');
-              gamObserver = new MutationObserver(function(event) {
-                  event.forEach(function(mutation) {
-                      if (mutation.addedNodes.length && mutation.addedNodes[0].nodeName == "ARTICLE") {
-                          continuesPage++;
-                          insertNative(mutation.addedNodes[0]);
-                      }
-                  })
-              });
-  
-  
-              gamObserver.observe(articleElement, {
-                  childList: true,
-                  attributes: true,
-                  subtree: true,
-                  attributeOldValue: true,
-                  type: true
-                  //characterData: false,
-                  //characterDataOldValue: false
-              });
-  
-              if (relArticle1.length === 1 || continuesPage === 1) {
-                  insertNative(document);
-              }
-      }
-    
-      function insertNative(doc) {
-          var nativeoutId = 1,
-              natoutSlotName,
-              articleIdx,
-              natoutSlots;
-              doc.querySelectorAll("div[id^='div-gpt-ad-fimela-nativeOut']").forEach(function(v, k) {
-
-              if (v.id.match(/nativeout/ig)) {
-                  natoutSlotName = 'div-gpt-ad-fimela-nativeOut-'+nativeoutId+'-'+continuesPage;
-                  v.setAttribute('id',natoutSlotName)
-                  natoutSlots = googletag.defineOutOfPageSlot("/36504930/www.fimela.com/dfp-nativeOut-slot" + nativeoutId, v.id);
-                  natoutSlots.addService(googletag.pubads());
-                  googletag.display(v.id);
-                  googletag.pubads().refresh([natoutSlots]);
-                  nativeoutId++;
-              }
-          });
-      }
+      window.addEventListener("load", GAMLibrary.initiateNativeContainer);
 
       /*Put additional script to load showcase on infinite page*/
       var element = document.querySelector('.read-page--core-article');
@@ -1147,9 +1129,9 @@ if(fimela.final) { fimela.final(); }
               //console.log(elContent.length);
               /*add load more ads div container*/
               var order = parseInt(elContent.length);
-              create_element('div-gpt-ad-fimela-lb-'+order, 'article-lb-'+order);
-              create_element('div-gpt-ad-fimela-sc-'+order, 'article-sc-'+order);
-              create_element('div-gpt-ad-fimela-halfpage-'+order, 'article-halfpage-'+order);
+              GAMLibrary.create_element('div-gpt-ad-fimela-lb-'+order, 'article-lb-'+order);
+              GAMLibrary.create_element('div-gpt-ad-fimela-sc-'+order, 'article-sc-'+order);
+              GAMLibrary.create_element('div-gpt-ad-fimela-halfpage-'+order, 'article-halfpage-'+order);
               var fim_lb = googletag.defineSlot('/36504930/www.fimela.com/dfp-lb', [[728, 90],[970, 90],[970,250]], 'div-gpt-ad-fimela-lb-'+order).addService(googletag.pubads());
                   googletag.display('div-gpt-ad-fimela-lb-'+order); googletag.pubads().refresh([fim_lb]);
               var fim_sc = googletag.defineSlot('/36504930/www.fimela.com/dfp-sc1', [300, 250], 'div-gpt-ad-fimela-sc-'+order).addService(googletag.pubads());
