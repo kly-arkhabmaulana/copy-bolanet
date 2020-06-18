@@ -896,6 +896,30 @@ if(fimela.final) { fimela.final(); }
       window.GAMLibrary = {
         dfpBillboard          :   '/36504930/www.fimela.com/dfp-billboard',
         gamImmersive          :   '/36504930/www.fimela.com/dfp-immersive',
+        documentMeta          :   function (metaName) {
+                                    var metaResult = '';
+                                    var metas = document.getElementsByTagName('meta');
+                                    if (metas) {
+                                      for (var x = 0, y = metas.length; x < y; x++) {
+                                        if (metas[x].name.toLowerCase() == metaName) {
+                                          metaResult += metas[x].content;
+                                        }
+                                      }
+                                    }
+                                    return metaResult != '' ? metaResult : '';
+                                  },
+        inArray               :   function (needle, haystack) {
+                                    var length = haystack.length;
+                                    for (var i = 0; i < length; i++) {
+                                      if (haystack[i] == needle) return true;
+                                    }
+                                    return false;
+                                  },
+        arrToLowerCase        :   function (arr) {
+                                    return arr.map(function(v,i){
+                                      return v.toLowerCase();
+                                    });
+                                  },
         userAgent             :   navigator.userAgent.toLowerCase(),
         GAMisTablet           :   /(ipad|tablet|(android(?!.*mobile))|(windows(?!.*phone)(.*touch))|kindle|playbook|silk|(puffin(?!.*(IP|AP|WP))))/.test(this.userAgent)
       }
@@ -940,123 +964,100 @@ if(fimela.final) { fimela.final(); }
     		parent.window.open(dfpTracker, '_blank');
     	};
 
-      googletag.cmd.push(function() {
-          var fim_lb = googletag.defineSlot('/36504930/www.fimela.com/dfp-lb', [[728, 90],[970, 90],[970,250]], 'div-gpt-ad-fimela-lb-1').addService(googletag.pubads());
-          var fim_sc = googletag.defineSlot('/36504930/www.fimela.com/dfp-sc1', [300, 250], 'div-gpt-ad-fimela-sc-1').addService(googletag.pubads());
-          var fim_hp = googletag.defineSlot('/36504930/www.fimela.com/dfp-halfpage', [[300, 250],[300, 600]], 'div-gpt-ad-fimela-halfpage-1').addService(googletag.pubads());
-
-          /*INIT CONTENT FILTERING SCRIPT*/
-          var blackListWords = new Array('matcont','aduhai','kelamin','vital','anal','belahan','bercinta','bergairah','gairah','intim','bikini','bokong','boob','bra','bugil','celana','ciuman','cleavage','dada','dewasa','diremas','doggie','ejakulasi','ereksi','erotis','foreplay','kiss','seks','gangbang','horny','hot','kamasutra','keperawanan','perawan','kondom','kontrasepsi','libido','lingerie','masturbasi','mature','menggairahkan','menggoda','mesra','miss-v','mr-p','nakal','naughty','nipple','nipples','onani','oral','oral seks','organ','orgasme','paha','pantat','panties','payudara','pelecehan','telanjang','penetrasi','penis','perkosa','perkosaan','pole','porno','pornoaksi','pornografi','telentang','provokatif','putting','ranjang','sex','penetratif','seksi','seksual','sensual','seronok','doll','toys','skandal','sperma','striptease','striptis','syur','terangsang','tiduri','topless','vagina','vibrator','lendir','prostitusi','homoseks','meraba-raba','mesum','memerkosa','rudapaksa','kemaluan','menewaskan','menewaskan orang','mengancam nyawa','meninggal','meninggal dunia','orang mati','orang tewas','pemakaman','petugas penyelamat','telah meninggal','terbunuh','tewas','tewaskan','tim penyelamat','wanita meninggal','autopsi','belasungkawa','bencana','bencana besar','bunuh orang','bunuh diri','darurat bencana','dilaporkan tewas','dimakamkan','dipastikan tewas','ditemukan mati','ditemukan tewas','hilangnya nyawa','identitas korban','inalillahi','jasad korban','jasadnya','jenasah wanita','jenazah','jenazah pria','jenazah teridentifikasi','jasad','kehilangan hidupnya','kehilangan nyawa','kehilangan nyawanya','kematian','korban','korban jiwa','korban meninggal','korban tewas','mati','mayat','mayat korban','membunuh','membunuh istrinya','membunuh mereka','membunuh suaminya','menemui ajal','mengalami koma','menghembuskan nafas terakhir','menimbulkan korban','meninggal akibat sakit','menyebabkan kematian','meregang nyawa','meregggut nyawa','modar','nyawa hilang','nyawa melayang','penyebab kematian','tak bernyawa','tak sadarkan diri','terkapar','tidak bernyawa','tutup usia','wafat','kematian virus','kematian wabah','korban terinfeksi','virus menyerang','merenggut nyawa','pelayat','hilangkan nyawa','renggut nyawa','wabah','keadaan kritis','kehilangan darah','merenggut jiwa','telan nyawa','menelan nyawa','memakan nyawa','dinyatakan meninggal','nyawa tak tertolong','penyakit','sakit pernapasan','sesak','korona','corona','odp','pdp','virus','rumah sakit','Covid-19','virus korona','positif korona','COVID-19','virus corona','terjangkit COVID-19','terinfeksi virus corona'),
-          urlPath = document.URL,
-          urlArray = urlPath.split("/"),
-          isMatcont = false,
-          dfp_pageTitle = urlArray[urlArray.length - 1],
-          dfp_titles = dfp_pageTitle.klyFiltering("-"),
-          dfp_pageKeywords = document_meta("keywords"),
-          dfp_keyword = dfp_pageKeywords.klyFiltering(","),
-          /* POPULATE META DATA DESC */
-          dfp_pageDesc = document_meta("description"),
-          dfp_desc = dfp_pageDesc.klyFiltering(","),
-          tagForAds = (typeof kmklabs !== 'undefined') ? kmklabs.gtm.tag.replace(/[^A-Za-z0-9|\- ]/ig,"").klyFiltering("|") : "", /*NEW*/
-          dfp_keywords = dfp_keyword.concat(dfp_titles, dfp_desc, tagForAds);
-
-          /*MATURE CONTENT DEFINED VAR & SET TARGETTING*/
-          if (!blackListWords) {
+      var elImmersiveContainer = document.createElement('div');
+      elImmersiveContainer.setAttribute('id', 'div-gpt-ad-fimela-immersive-oop');
+      if (document.body.appendChild(elImmersiveContainer)) {
+        googletag.cmd.push(function() {
+            /*INIT CONTENT FILTERING SCRIPT*/
+            var urlPath = document.URL,
+            isMatcont = false,
+            blackListWords = new Array('matcont','aduhai','kelamin','vital','anal','belahan','bercinta','bergairah','gairah','intim','bikini','bokong','boob','bra','bugil','celana','ciuman','cleavage','dada','dewasa','diremas','doggie','ejakulasi','ereksi','erotis','foreplay','kiss','seks','gangbang','horny','hot','kamasutra','keperawanan','perawan','kondom','kontrasepsi','libido','lingerie','masturbasi','mature','menggairahkan','menggoda','mesra','miss-v','mr-p','nakal','naughty','nipple','nipples','onani','oral','oral seks','organ','orgasme','paha','pantat','panties','payudara','pelecehan','telanjang','penetrasi','penis','perkosa','perkosaan','pole','porno','pornoaksi','pornografi','telentang','provokatif','putting','ranjang','sex','penetratif','seksi','seksual','sensual','seronok','doll','toys','skandal','sperma','striptease','striptis','syur','terangsang','tiduri','topless','vagina','vibrator','lendir','prostitusi','homoseks','meraba-raba','mesum','memerkosa','rudapaksa','kemaluan','menewaskan','menewaskan orang','mengancam nyawa','meninggal','meninggal dunia','orang mati','orang tewas','pemakaman','petugas penyelamat','telah meninggal','terbunuh','tewas','tewaskan','tim penyelamat','wanita meninggal','autopsi','belasungkawa','bencana','bencana besar','bunuh orang','bunuh diri','darurat bencana','dilaporkan tewas','dimakamkan','dipastikan tewas','ditemukan mati','ditemukan tewas','hilangnya nyawa','identitas korban','inalillahi','jasad korban','jasadnya','jenasah wanita','jenazah','jenazah pria','jenazah teridentifikasi','jasad','kehilangan hidupnya','kehilangan nyawa','kehilangan nyawanya','kematian','korban','korban jiwa','korban meninggal','korban tewas','mati','mayat','mayat korban','membunuh','membunuh istrinya','membunuh mereka','membunuh suaminya','menemui ajal','mengalami koma','menghembuskan nafas terakhir','menimbulkan korban','meninggal akibat sakit','menyebabkan kematian','meregang nyawa','meregggut nyawa','modar','nyawa hilang','nyawa melayang','penyebab kematian','tak bernyawa','tak sadarkan diri','terkapar','tidak bernyawa','tutup usia','wafat','kematian virus','kematian wabah','korban terinfeksi','virus menyerang','merenggut nyawa','pelayat','hilangkan nyawa','renggut nyawa','wabah','keadaan kritis','kehilangan darah','merenggut jiwa','telan nyawa','menelan nyawa','memakan nyawa','dinyatakan meninggal','nyawa tak tertolong','penyakit','sakit pernapasan','sesak','korona','corona','odp','pdp','virus','rumah sakit','Covid-19','virus korona','positif korona','COVID-19','virus corona','terjangkit COVID-19','terinfeksi virus corona'),
+            /* POPULATE META DATA KEYWORDS */
+            dfp_pageTitle = kmklabs.article && kmklabs.article.title.klyFiltering(' '),
+            dfp_titles = (typeof dfp_pageTitle !== 'undefined') ? dfp_pageTitle.toString().klyFiltering("-") : '',
+            dfp_pageKeywords = GAMLibrary.documentMeta("keywords"),
+            dfp_keyword = dfp_pageKeywords.klyFiltering(","),
+            /* POPULATE META DATA DESC */
+            dfp_pageDesc = GAMLibrary.documentMeta("description"),
+            dfp_desc = dfp_pageDesc.klyFiltering(","),
+            tagForAds = tagForAds = (typeof kmklabs !== 'undefined') ? kmklabs.gtm.tag.replace(/[^A-Za-z0-9|\- ]/ig,"").klyFiltering("|") : "",
+            dfp_keywords = dfp_keyword.concat(dfp_titles, dfp_desc, tagForAds),
+            gam_billboard,gam_topfrm,gam_bottomfrm,gam_skinad;
+            /*MATURE CONTENT DEFINED VAR & SET TARGETTING*/
+            if (!blackListWords) {
               var blackListWords = new Array('matcont');
-          }
-          
-          blackListWords = arrToLowerCase(blackListWords);
-
-          dfp_keywords.forEach(function(sKeyword) {
+            }
+            
+            //search from keyword, desc & tag meta data
+            blackListWords = GAMLibrary.arrToLowerCase(blackListWords);
+            dfp_keywords.forEach(function(sKeyword) {
               tagForAds.push(sKeyword);
-              if (inArray(sKeyword, blackListWords)) {
-                  isMatcont = true;
+              if (GAMLibrary.inArray(sKeyword, blackListWords)) {
+                isMatcont = true;
               }
-          });
+            });
 
-          /* DEFINE IMMERSIVE TAG - DO NOT CHANGE THE SLOT ORDER, IMMERSIVE ALWAYS ON THE 1st POSITION - */
-          var gam_immersive = googletag.defineOutOfPageSlot(GAMLibrary.gamImmersive, 'div-gpt-ad-fimela-immersive-oop').addService(googletag.pubads());
-          googletag.defineOutOfPageSlot('/36504930/www.fimela.com/dfp-marcomm1','div-gpt-ad-fimela-marcomm1').addService(googletag.pubads());
-          googletag.defineOutOfPageSlot('/36504930/www.fimela.com/dfp-lFloating', 'div-gpt-ad-fimela-lFloating-oop').addService(googletag.pubads());
-          googletag.defineOutOfPageSlot('/36504930/www.fimela.com/dfp-pop', 'div-gpt-ad-fimela-popup-oop').addService(googletag.pubads());
-          googletag.defineOutOfPageSlot('/36504930/www.fimela.com/dfp-contextual', 'div-gpt-ad-fimela-contextual-oop').addService(googletag.pubads());
-          googletag.defineOutOfPageSlot('/36504930/www.fimela.com/dfp-highlight-1', 'div-gpt-ad-fimela-highlight-1').addService(googletag.pubads());
-          googletag.defineOutOfPageSlot('/36504930/www.fimela.com/dfp-highlight-2', 'div-gpt-ad-fimela-highlight-2').addService(googletag.pubads());
+            /* DEFINE IMMERSIVE TAG - DO NOT CHANGE THE SLOT ORDER, IMMERSIVE ALWAYS ON THE 1st POSITION - */
+            var gam_immersive = googletag.defineOutOfPageSlot(GAMLibrary.gamImmersive, 'div-gpt-ad-fimela-immersive-oop').addService(googletag.pubads());
+            var fim_lb = googletag.defineSlot('/36504930/www.fimela.com/dfp-lb', [[728, 90],[970, 90],[970,250]], 'div-gpt-ad-fimela-lb-1').addService(googletag.pubads());
+            var fim_sc = googletag.defineSlot('/36504930/www.fimela.com/dfp-sc1', [300, 250], 'div-gpt-ad-fimela-sc-1').addService(googletag.pubads());
+            var fim_hp = googletag.defineSlot('/36504930/www.fimela.com/dfp-halfpage', [[300, 250],[300, 600]], 'div-gpt-ad-fimela-halfpage-1').addService(googletag.pubads());
+            googletag.defineOutOfPageSlot('/36504930/www.fimela.com/dfp-marcomm1','div-gpt-ad-fimela-marcomm1').addService(googletag.pubads());
+            googletag.defineOutOfPageSlot('/36504930/www.fimela.com/dfp-lFloating', 'div-gpt-ad-fimela-lFloating-oop').addService(googletag.pubads());
+            googletag.defineOutOfPageSlot('/36504930/www.fimela.com/dfp-pop', 'div-gpt-ad-fimela-popup-oop').addService(googletag.pubads());
+            googletag.defineOutOfPageSlot('/36504930/www.fimela.com/dfp-contextual', 'div-gpt-ad-fimela-contextual-oop').addService(googletag.pubads());
+            googletag.defineOutOfPageSlot('/36504930/www.fimela.com/dfp-highlight-1', 'div-gpt-ad-fimela-highlight-1').addService(googletag.pubads());
+            googletag.defineOutOfPageSlot('/36504930/www.fimela.com/dfp-highlight-2', 'div-gpt-ad-fimela-highlight-2').addService(googletag.pubads());
+            
+            googletag.pubads().addEventListener('slotRenderEnded', function(event) {
+                var dfp_slotElementId = event.slot.getSlotId().getDomId(); /* get adunit dom id*/
+
+                if (event.slot == gam_immersive) {
+                        if (event.isEmpty) {
+                            gam_billboard = googletag.defineOutOfPageSlot(GAMLibrary.dfpBillboard, 'div-gpt-ad-fimela-billboard-oop').addService(googletag.pubads());
+                            gam_topfrm = googletag.defineOutOfPageSlot('/36504930/www.fimela.com/dfp-topfrm', 'div-gpt-ad-fimela-topfrm-oop').addService(googletag.pubads());
+                            gam_bottomfrm = googletag.defineOutOfPageSlot('/36504930/www.fimela.com/dfp-bottomfrm', 'div-gpt-ad-fimela-bottomfrm-oop').addService(googletag.pubads());
+                            
+                            googletag.display('div-gpt-ad-fimela-billboard-oop');
+                            googletag.display('div-gpt-ad-fimela-topfrm-oop');
+                            googletag.display('div-gpt-ad-fimela-bottomfrm-oop');
+                            
+                            if(!GAMLibrary.GAMisTablet){
+                                gam_skinad = googletag.defineOutOfPageSlot('/36504930/www.fimela.com/dfp-skinad', 'div-gpt-ad-fimela-skinad-oop').addService(googletag.pubads());
+                                googletag.display('div-gpt-ad-fimela-skinad-oop');
+                                googletag.pubads().refresh([gam_billboard, gam_topfrm, gam_bottomfrm, gam_skinad]);
+                            }else{
+                                googletag.pubads().refresh([gam_billboard, gam_topfrm, gam_bottomfrm]);
+                            }
+
+                        }
+                }
+            });
           
-          googletag.pubads().addEventListener('slotRenderEnded', function(event) {
-              var dfp_slotElementId = event.slot.getSlotId().getDomId(); /* get adunit dom id*/
+            /*  START TARGETING BLOCK   */
+            if (isMatcont) { googletag.pubads().setTargeting("isMatcont", ["1"]);}
+            if(typeof Krux !== "undefined"){
+              googletag.pubads().setTargeting('ksg', Krux.segments);
+              googletag.pubads().setTargeting('kuid', Krux.user);
+            }
+            googletag.pubads().setTargeting("tags",tagForAds);
+            googletag.pubads().setTargeting("currentUrl", urlPath);
+            googletag.pubads().setTargeting("type", kmklabs.gtm.type);
+            googletag.pubads().setTargeting("pageType", kmklabs.pageType);
+            googletag.pubads().setTargeting("channel", kmklabs.gtm.subCategory);
+            googletag.pubads().setTargeting("audience", kmklabs.gtm.audience ? kmklabs.gtm.audience.split("|") : "false");
+            googletag.pubads().setTargeting("isAdvertorial", typeof (isAdvertorial = kmklabs.article && kmklabs.article.isAdvertorial.toString()) === "undefined" ? "false" :  isAdvertorial);   
+            googletag.pubads().setTargeting("isMultipage", typeof (isMultipage = kmklabs.article && kmklabs.article.isMultipage.toString()) === "undefined" ? "false" : isMultipage );
+            googletag.pubads().setTargeting("articleId", kmklabs.gtm.articleId.toString());
+            googletag.pubads().setTargeting("pagingNum", typeof (pageParam = kmklabs.gtm.pageParam && kmklabs.gtm.pageParam.toString()) === "undefined" ? "false" : pageParam );
+            /*  END TARGETING BLOCK   */
 
-              if (event.slot == gam_immersive) {
-                      if (event.isEmpty) {
-                          gam_billboard = googletag.defineOutOfPageSlot(GAMLibrary.dfpBillboard, 'div-gpt-ad-fimela-billboard-oop').addService(googletag.pubads());
-                          gam_topfrm = googletag.defineOutOfPageSlot('/36504930/www.fimela.com/dfp-topfrm', 'div-gpt-ad-fimela-topfrm-oop').addService(googletag.pubads());
-                          gam_bottomfrm = googletag.defineOutOfPageSlot('/36504930/www.fimela.com/dfp-bottomfrm', 'div-gpt-ad-fimela-bottomfrm-oop').addService(googletag.pubads());
-                          
-                          googletag.display('div-gpt-ad-fimela-billboard-oop');
-                          googletag.display('div-gpt-ad-fimela-topfrm-oop');
-                          googletag.display('div-gpt-ad-fimela-bottomfrm-oop');
-                          
-                          if(!GAMLibrary.GAMisTablet){
-                              gam_skinad = googletag.defineOutOfPageSlot('/36504930/www.fimela.com/dfp-skinad', 'div-gpt-ad-fimela-skinad-oop').addService(googletag.pubads());
-                              googletag.display('div-gpt-ad-fimela-skinad-oop');
-                              googletag.pubads().refresh([gam_billboard, gam_topfrm, gam_bottomfrm, gam_skinad]);
-                          }else{
-                              googletag.pubads().refresh([gam_billboard, gam_topfrm, gam_bottomfrm]);
-                          }
-
-                      }
-              }
-          });
-          
-          function arrToLowerCase(arr){
-              return arr.map(function(v,i){
-                  return v.toLowerCase();
-              });
-          }
-
-          /*GET META*/
-          function document_meta(metaName) {
-                  var metaResult = '';
-                  var metas = document.getElementsByTagName('meta');
-                  if (metas) {
-                      for (var x = 0, y = metas.length; x < y; x++) {
-                          if (metas[x].name.toLowerCase() == metaName) {
-                          metaResult += metas[x].content;
-                      }
-                  }
-              }
-              return metaResult != '' ? metaResult : '';
-          }
-
-          function inArray(needle, haystack) {
-              var length = haystack.length;
-              for (var i = 0; i < length; i++) {
-                  if (haystack[i] == needle) return true;
-              }
-              return false;
-          }
-        
-          /* DMP TARGET */
-          googletag.pubads().setTargeting('ksg', Krux.segments);
-          googletag.pubads().setTargeting('kuid', Krux.user);
-  
-          if (isMatcont) {
-              googletag.pubads().setTargeting("isMatcont", ["1"]);
-          }
-                  
-          googletag.pubads().setTargeting("articleId",kmklabs.gtm.articleId.toString());
-          googletag.pubads().setTargeting("currentUrl", urlPath);
-          googletag.pubads().setTargeting("tags",tagForAds);
-          googletag.pubads().setTargeting("Channel", kmklabs.channel.full_slug);
-          googletag.pubads().setTargeting("PageType", kmklabs.pageType);
-          googletag.pubads().setTargeting("articleType", kmklabs.gtm.type);
-          googletag.pubads().setTargeting("Site", "FIMELA.COM");
-          googletag.pubads().setTargeting("Platform", "DESKTOP");
-          googletag.pubads().setCentering(true);
-          googletag.pubads().enableSingleRequest();
-          googletag.pubads().collapseEmptyDivs();
-          googletag.enableServices();
-      });
+            googletag.pubads().setCentering(true);
+            googletag.pubads().enableSingleRequest();
+            googletag.pubads().collapseEmptyDivs();
+            googletag.enableServices();
+        });
+      }
 
       googletag.cmd.push(function() {googletag.display('div-gpt-ad-fimela-immersive-oop');});
       googletag.cmd.push(function() {googletag.display('div-gpt-ad-fimela-lb-1');});
