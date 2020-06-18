@@ -37,14 +37,6 @@ window.GAMLibrary = {
     GAMisTablet         :   /(ipad|tablet|(android(?!.*mobile))|(windows(?!.*phone)(.*touch))|kindle|playbook|silk|(puffin(?!.*(IP|AP|WP))))/.test(this.userAgent)                            
 }
 
-function document_keywords() {
-    var a = "",
-        o = document.getElementsByTagName("meta");
-    if (o)
-        for (var e = 0, t = o.length; e < t; e++) "keywords" == o[e].name.toLowerCase() && (a += o[e].content);
-    return "" != a ? a : ""
-}
-
 var PWT={}; //Initialize Namespace
 var googletag = googletag || {};
 googletag.cmd = googletag.cmd || [];
