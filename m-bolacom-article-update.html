@@ -539,6 +539,40 @@ if(window.kmklabs.pageType === "ReadPage") {
         })();
     };
     /* END - LOAD PUBMATIC, GOOGLE ADS & REVIVE */
+	
+PWT.HookForPrebidRequestBids = function (adUnits) {
+    //console.log('HookForPrebidRequestBids: Original adUnits array :', adUnits);
+    adUnits.forEach(function (au) {
+	//console.log('HookForPrebidRequestBids: adding kadfloor to pubmatic');
+	au.bids.forEach(function (bid) {
+	    if (bid.bidder == 'spotx') {
+		bid.params["outstream_function"] = function (bid) {
+		    //console.dir(bid);
+		    //const videoDiv = bid.adUnitCode;
+		    const videoDiv = bid.adUnitCode.split('@')[0];
+		    const playerWidth = 300;
+		    const playerHeight = 250;
+		    //window.console.log("[SPOTX][renderer] Handle SpotX custom outstream renderer");
+		    let script = window.document.createElement("script");
+		    script.type = "text/javascript";
+		    script.src = "//cdn.spotxcdn.com/website/integration_test/media/asia/EASIv2.js";
+		    script.setAttribute("data-spotx_channel_id","" + bid.channel_id);
+		    script.setAttribute("data-spotx_vast_url", "" + bid.vastUrl);
+		    script.setAttribute("data-spotx_content_width", playerWidth);
+		    script.setAttribute("data-spotx_content_height",playerHeight);
+		    script.setAttribute("data-spotx_content_page_url",bid.renderer.config.content_page_url);
+		    script.setAttribute("data-spotx_ad_unit", "incontent");
+		    script.setAttribute("data-spotx_autoplay", "1");
+		    script.setAttribute("data-spotx_continue_out_of_view", "1");
+		    script.setAttribute("data-spotx_content_container_id",videoDiv);
+		    var vid_contain = window.document.getElementById(videoDiv);
+		    vid_contain.style.cssText = "display: none; margin-bottom: 20px";
+		    vid_contain.appendChild(script);
+		}
+	    }
+	})
+    })
+};
 </script>
 
 <script>
