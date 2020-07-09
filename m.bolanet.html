@@ -223,8 +223,30 @@
     <!--nativev2-->
     <link rel="stylesheet" type="text/css" href="https://cdns.klimg.com/a.bola.net/assets/css/m/min/single/0.4/native-video-v2.css">
     <script type="text/javascript" src="https://cdns.klimg.com/a.bola.net/assets/js/m/min/single/0.3/native-video-v2.js"></script><div class="rm01">
-        <iframe width="360" height="200" src="https://www.youtube.com/embed/tgbNymZ7vqY" allowfullscreen>
-</iframe>
+        
+<div id="ytplayer"></div>
+<script>
+  // Load the IFrame Player API code asynchronously.
+  var tag = document.createElement('script');
+  tag.src = "https://www.youtube.com/player_api";
+  var firstScriptTag = document.getElementsByTagName('script')[0];
+  firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+  // Replace the 'ytplayer' element with an <iframe> and
+  // YouTube player after the API code downloads.
+  var player;
+  function onYouTubePlayerAPIReady() {
+    player = new YT.Player('ytplayer', {
+      height: '360',
+      width: '200',
+      videoId: 'M7lc1UVf-VE',
+      playerVars: {
+            autoplay: 1,
+            fs: 0
+      }
+    });
+  }
+</script>
         <div id="main_mid">
             <div id="main_mid_hasil">
                 <div id="main_mid_hasil_title">
