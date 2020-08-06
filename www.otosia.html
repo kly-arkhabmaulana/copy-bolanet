@@ -1539,106 +1539,108 @@ setTimeout(loadGPT, 500);
     parent.window.open(dfpTracker, '_blank');
   };
         
-  var elImmersiveContainer = document.createElement('div');
-  elImmersiveContainer.setAttribute('id', 'div-gpt-ad-otosia-immersive-oop');
-  if (document.body.appendChild(elImmersiveContainer)) {
-    googletag.cmd.push(function() {
-      var urlPath = document.URL;
-      var isMatcont = false;
-      var blackListWords = new Array('matcont', 'aduhai', 'kelamin', 'vital', 'anal', 'belahan', 'bercinta', 'bergairah', 'gairah', 'intim', 'bikini', 'bokong', 'boob', 'bra', 'bugil', 'celana', 'ciuman', 'cleavage', 'dada', 'dewasa', 'diremas', 'doggie', 'ejakulasi', 'ereksi', 'erotis', 'foreplay', 'kiss', 'seks', 'gangbang', 'horny', 'hot', 'kamasutra', 'keperawanan', 'perawan', 'kondom', 'kontrasepsi', 'libido', 'lingerie', 'masturbasi', 'mature', 'menggairahkan', 'menggoda', 'mesra', 'miss-v', 'mr-p', 'nakal', 'naughty', 'nipple', 'nipples', 'onani', 'oral', 'oral seks', 'organ', 'orgasme', 'paha', 'pantat', 'panties', 'payudara', 'pelecehan', 'telanjang', 'penetrasi', 'penis', 'perkosa', 'perkosaan', 'pole', 'porno', 'pornoaksi', 'pornografi', 'telentang', 'provokatif', 'putting', 'ranjang', 'sex', 'penetratif', 'seksi', 'seksual', 'sensual', 'seronok', 'doll', 'toys', 'skandal', 'sperma', 'striptease', 'striptis', 'syur', 'terangsang', 'tiduri', 'topless', 'vagina', 'vibrator', 'lendir', 'prostitusi', 'homoseks', 'meraba-raba', 'mesum', 'memerkosa', 'rudapaksa', 'kemaluan', 'kasus asusila', 'pemerkosaan', 'hubungan seksual', 'hubungan intim', 'video porno', 'berita hoax', 'ternyata hoax', 'ahed tamimi', 'konflik palestina israel', 'konflik suriah', 'ujaran kebencian', 'g30s', 'kediktatoran arab saudi', 'konflik palestina-israel', 'fpi', 'penembakan', 'pelecehan seksual', 'tips seks', 'komunitas swinger', 'fenomena kelainan seksual', 'penyimpangan seks', 'posisi seks', 'obat kuat', 'bentuk payudara', 'implan payudara', 'chat firza-rizieq', 'anarkisme suporter sepakbola', 'bentrok suporter', 'pengeroyokan', 'penganiayaan', 'begal motor', 'kekerasan pada wartawan', 'pemerkosaan anak', 'pencabulan', 'bentrokan warga', 'bentrokan', 'kasus narkoba', 'akibat merokok', 'bahaya merokok', 'berhenti merokok', 'cara berhenti merokok', 'efek berhenti merokok', 'larangan merokok', 'tips berhenti merokok', 'rokok elektrik', 'pilpres 2019', 'koalisi pilpres 2019', 'koalisi prabowo', 'koalisi jokowi', 'prabowo-sandiaga', 'ratna sarumpaet', 'capres jokowi', 'capres prabowo', 'kebohongan ratna sarumpaet', 'prabowo subianto', 'jemaah ansharut daulah', 'aliran sesat', 'lia eden', 'kisah mualaf', 'penistaan agama', 'suporter tewas', 'gempa palu', 'gempa donggala', 'gempa sulawesi tengah', 'pembunuhan', 'tsunami palu', 'penemuan mayat', 'lion air jatuh di karawang', 'lion air jatuh', 'pembunuhan sadis', 'lion air hilang kontak', 'pesawat jatuh', 'pesawat hilang kontak', 'kecelakaan', 'kapal tenggelam di danau toba', 'kecelakaan bus', 'kapal tenggelam', 'kasus tabrak lari', 'bunuh diri', 'perselingkuhan', 'kisah perselingkuhan', 'razia pasangan mesum', 'seks bebas', 'gangguan jiwa', 'tes keperawanan', 'kontroversi hukuman mati', 'stres dan depresi', 'ahok gugat cerai veronica tan', 'Kanker', 'Impotensi', 'merokok', 'Perokok', 'Rokok', 'tembakau', 'Pelanggaran', 'Tablet', 'Overdosis', 'Jantung', 'Stroke', 'Cancer', 'Narkoba', 'Djarum', 'Ganja', 'BNN', 'Obesitas', 'Osteoporosis', 'Corona', 'Corona di indonesia', 'virus corona', 'virus-corona', 'covid-19', 'wabah corona', 'menewaskan', 'menewaskan orang', 'mengancam nyawa', 'meninggal', 'meninggal dunia', 'orang mati', 'orang tewas', 'pemakaman', 'petugas penyelamat', 'telah meninggal', 'terbunuh', 'tewas', 'tewaskan', 'tim penyelamat', 'wanita meninggal', 'autopsi', 'belasungkawa', 'bencana', 'bencana besar', 'bunuh orang', 'darurat bencana', 'dilaporkan tewas', 'dimakamkan', 'dipastikan tewas', 'ditemukan mati', 'ditemukan tewas', 'hilangnya nyawa', 'identitas korban', 'inalillahi', 'jasad korban', 'jasadnya', 'jenasah wanita', 'jenazah', 'jenazah pria', 'jenazah teridentifikasi', 'jasad', 'kehilangan hidupnya', 'kehilangan nyawa', 'kehilangan nyawanya', 'kematian', 'korban', 'korban jiwa', 'korban meninggal', 'korban tewas', 'mati', 'mayat', 'mayat korban', 'membunuh', 'membunuh istrinya', 'membunuh mereka', 'membunuh suaminya', 'menemui ajal', 'mengalami koma', 'menghembuskan nafas terakhir', 'menimbulkan korban', 'meninggal akibat sakit', 'menyebabkan kematian', 'meregang nyawa', 'meregggut nyawa', 'modar', 'nyawa hilang', 'nyawa melayang', 'penyebab kematian', 'tak bernyawa', 'tak sadarkan diri', 'terkapar', 'tidak bernyawa', 'tutup usia', 'wafat', 'kematian virus', 'kematian wabah', 'korban terinfeksi', 'virus menyerang', 'merenggut nyawa', 'pelayat', 'hilangkan nyawa', 'renggut nyawa', 'wabah', 'keadaan kritis', 'kehilangan darah', 'merenggut jiwa', 'telan nyawa', 'menelan nyawa', 'memakan nyawa', 'dinyatakan meninggal', 'nyawa tak tertolong', 'penyakit', 'sakit pernapasan', 'sesak', 'korona', 'corona', 'odp', 'pdp', 'virus', 'rumah sakit', 'Covid-19', 'virus korona', 'positif korona', 'COVID-19', 'terjangkit COVID-19', 'terinfeksi virus corona');
+  // var elImmersiveContainer = document.createElement('div');
+  // elImmersiveContainer.setAttribute('id', 'div-gpt-ad-otosia-immersive-oop');
+  // if (document.body.appendChild(elImmersiveContainer)) {
+    
+  // }
 
-      /* POPULATE META DATA KEYWORDS */
-      var dfp_pageTitle = kly.article && kly.article.title.klyFiltering(' '),
-      dfp_titles = (typeof dfp_pageTitle !== 'undefined') ? dfp_pageTitle.toString().klyFiltering("-") : '',
-      dfp_pageKeywords = GAMLibrary.documentMeta("keywords"),
-      dfp_keyword = dfp_pageKeywords.klyFiltering(","),
-      /* POPULATE META DATA DESC */
-      dfp_pageDesc = GAMLibrary.documentMeta("description"),
-      dfp_desc = dfp_pageDesc.klyFiltering(","),
-      tagForAds = kly && (tagForAds = kly.gtm.tag.klyFiltering("|")),
-      dfp_keywords = dfp_keyword.concat(dfp_titles, dfp_desc, tagForAds),
-      gam_billboard,gam_topfrm,gam_bottomfrm,gam_skinad;
-      /*MATURE CONTENT DEFINED VAR & SET TARGETTING*/
-      if (!blackListWords) {
-        var blackListWords = new Array('matcont');
+  googletag.cmd.push(function() {
+    var urlPath = document.URL;
+    var isMatcont = false;
+    var blackListWords = new Array('matcont', 'aduhai', 'kelamin', 'vital', 'anal', 'belahan', 'bercinta', 'bergairah', 'gairah', 'intim', 'bikini', 'bokong', 'boob', 'bra', 'bugil', 'celana', 'ciuman', 'cleavage', 'dada', 'dewasa', 'diremas', 'doggie', 'ejakulasi', 'ereksi', 'erotis', 'foreplay', 'kiss', 'seks', 'gangbang', 'horny', 'hot', 'kamasutra', 'keperawanan', 'perawan', 'kondom', 'kontrasepsi', 'libido', 'lingerie', 'masturbasi', 'mature', 'menggairahkan', 'menggoda', 'mesra', 'miss-v', 'mr-p', 'nakal', 'naughty', 'nipple', 'nipples', 'onani', 'oral', 'oral seks', 'organ', 'orgasme', 'paha', 'pantat', 'panties', 'payudara', 'pelecehan', 'telanjang', 'penetrasi', 'penis', 'perkosa', 'perkosaan', 'pole', 'porno', 'pornoaksi', 'pornografi', 'telentang', 'provokatif', 'putting', 'ranjang', 'sex', 'penetratif', 'seksi', 'seksual', 'sensual', 'seronok', 'doll', 'toys', 'skandal', 'sperma', 'striptease', 'striptis', 'syur', 'terangsang', 'tiduri', 'topless', 'vagina', 'vibrator', 'lendir', 'prostitusi', 'homoseks', 'meraba-raba', 'mesum', 'memerkosa', 'rudapaksa', 'kemaluan', 'kasus asusila', 'pemerkosaan', 'hubungan seksual', 'hubungan intim', 'video porno', 'berita hoax', 'ternyata hoax', 'ahed tamimi', 'konflik palestina israel', 'konflik suriah', 'ujaran kebencian', 'g30s', 'kediktatoran arab saudi', 'konflik palestina-israel', 'fpi', 'penembakan', 'pelecehan seksual', 'tips seks', 'komunitas swinger', 'fenomena kelainan seksual', 'penyimpangan seks', 'posisi seks', 'obat kuat', 'bentuk payudara', 'implan payudara', 'chat firza-rizieq', 'anarkisme suporter sepakbola', 'bentrok suporter', 'pengeroyokan', 'penganiayaan', 'begal motor', 'kekerasan pada wartawan', 'pemerkosaan anak', 'pencabulan', 'bentrokan warga', 'bentrokan', 'kasus narkoba', 'akibat merokok', 'bahaya merokok', 'berhenti merokok', 'cara berhenti merokok', 'efek berhenti merokok', 'larangan merokok', 'tips berhenti merokok', 'rokok elektrik', 'pilpres 2019', 'koalisi pilpres 2019', 'koalisi prabowo', 'koalisi jokowi', 'prabowo-sandiaga', 'ratna sarumpaet', 'capres jokowi', 'capres prabowo', 'kebohongan ratna sarumpaet', 'prabowo subianto', 'jemaah ansharut daulah', 'aliran sesat', 'lia eden', 'kisah mualaf', 'penistaan agama', 'suporter tewas', 'gempa palu', 'gempa donggala', 'gempa sulawesi tengah', 'pembunuhan', 'tsunami palu', 'penemuan mayat', 'lion air jatuh di karawang', 'lion air jatuh', 'pembunuhan sadis', 'lion air hilang kontak', 'pesawat jatuh', 'pesawat hilang kontak', 'kecelakaan', 'kapal tenggelam di danau toba', 'kecelakaan bus', 'kapal tenggelam', 'kasus tabrak lari', 'bunuh diri', 'perselingkuhan', 'kisah perselingkuhan', 'razia pasangan mesum', 'seks bebas', 'gangguan jiwa', 'tes keperawanan', 'kontroversi hukuman mati', 'stres dan depresi', 'ahok gugat cerai veronica tan', 'Kanker', 'Impotensi', 'merokok', 'Perokok', 'Rokok', 'tembakau', 'Pelanggaran', 'Tablet', 'Overdosis', 'Jantung', 'Stroke', 'Cancer', 'Narkoba', 'Djarum', 'Ganja', 'BNN', 'Obesitas', 'Osteoporosis', 'Corona', 'Corona di indonesia', 'virus corona', 'virus-corona', 'covid-19', 'wabah corona', 'menewaskan', 'menewaskan orang', 'mengancam nyawa', 'meninggal', 'meninggal dunia', 'orang mati', 'orang tewas', 'pemakaman', 'petugas penyelamat', 'telah meninggal', 'terbunuh', 'tewas', 'tewaskan', 'tim penyelamat', 'wanita meninggal', 'autopsi', 'belasungkawa', 'bencana', 'bencana besar', 'bunuh orang', 'darurat bencana', 'dilaporkan tewas', 'dimakamkan', 'dipastikan tewas', 'ditemukan mati', 'ditemukan tewas', 'hilangnya nyawa', 'identitas korban', 'inalillahi', 'jasad korban', 'jasadnya', 'jenasah wanita', 'jenazah', 'jenazah pria', 'jenazah teridentifikasi', 'jasad', 'kehilangan hidupnya', 'kehilangan nyawa', 'kehilangan nyawanya', 'kematian', 'korban', 'korban jiwa', 'korban meninggal', 'korban tewas', 'mati', 'mayat', 'mayat korban', 'membunuh', 'membunuh istrinya', 'membunuh mereka', 'membunuh suaminya', 'menemui ajal', 'mengalami koma', 'menghembuskan nafas terakhir', 'menimbulkan korban', 'meninggal akibat sakit', 'menyebabkan kematian', 'meregang nyawa', 'meregggut nyawa', 'modar', 'nyawa hilang', 'nyawa melayang', 'penyebab kematian', 'tak bernyawa', 'tak sadarkan diri', 'terkapar', 'tidak bernyawa', 'tutup usia', 'wafat', 'kematian virus', 'kematian wabah', 'korban terinfeksi', 'virus menyerang', 'merenggut nyawa', 'pelayat', 'hilangkan nyawa', 'renggut nyawa', 'wabah', 'keadaan kritis', 'kehilangan darah', 'merenggut jiwa', 'telan nyawa', 'menelan nyawa', 'memakan nyawa', 'dinyatakan meninggal', 'nyawa tak tertolong', 'penyakit', 'sakit pernapasan', 'sesak', 'korona', 'corona', 'odp', 'pdp', 'virus', 'rumah sakit', 'Covid-19', 'virus korona', 'positif korona', 'COVID-19', 'terjangkit COVID-19', 'terinfeksi virus corona');
+
+    /* POPULATE META DATA KEYWORDS */
+    var dfp_pageTitle = kly.article && kly.article.title.klyFiltering(' '),
+    dfp_titles = (typeof dfp_pageTitle !== 'undefined') ? dfp_pageTitle.toString().klyFiltering("-") : '',
+    dfp_pageKeywords = GAMLibrary.documentMeta("keywords"),
+    dfp_keyword = dfp_pageKeywords.klyFiltering(","),
+    /* POPULATE META DATA DESC */
+    dfp_pageDesc = GAMLibrary.documentMeta("description"),
+    dfp_desc = dfp_pageDesc.klyFiltering(","),
+    tagForAds = kly && (tagForAds = kly.gtm.tag.klyFiltering("|")),
+    dfp_keywords = dfp_keyword.concat(dfp_titles, dfp_desc, tagForAds),
+    gam_billboard,gam_topfrm,gam_bottomfrm,gam_skinad;
+    /*MATURE CONTENT DEFINED VAR & SET TARGETTING*/
+    if (!blackListWords) {
+      var blackListWords = new Array('matcont');
+    }
+    
+    //search from keyword, desc & tag meta data
+    blackListWords = GAMLibrary.arrToLowerCase(blackListWords);
+    dfp_keywords.forEach(function(sKeyword) {
+      tagForAds.push(sKeyword);
+      if (GAMLibrary.inArray(sKeyword, blackListWords)) {
+        isMatcont = true;
       }
-      
-      //search from keyword, desc & tag meta data
-      blackListWords = GAMLibrary.arrToLowerCase(blackListWords);
-      dfp_keywords.forEach(function(sKeyword) {
-        tagForAds.push(sKeyword);
-        if (GAMLibrary.inArray(sKeyword, blackListWords)) {
-          isMatcont = true;
-        }
+    });
+
+    var userAgent = navigator.userAgent.toLowerCase();
+    const GAMisTablet = /(ipad|tablet|(android(?!.*mobile))|(windows(?!.*phone)(.*touch))|kindle|playbook|silk|(puffin(?!.*(IP|AP|WP))))/.test(userAgent);
+
+    var gam_immersive = googletag.defineOutOfPageSlot(GAMLibrary.gamImmersive, 'div-gpt-ad-otosia-immersive-oop').addService(googletag.pubads());
+
+    googletag.defineSlot("/36504930/www.otosia.com/dfp-sc1", [[300, 600],[300, 250],[160, 600]], "div-gpt-ad-otosia-sc1").addService(googletag.pubads()), 
+    googletag.defineSlot("/36504930/www.otosia.com/dfp-sc2", [[300, 250],[250, 250]], "div-gpt-ad-otosia-sc2").addService(googletag.pubads()); 
+    googletag.defineSlot("/36504930/www.otosia.com/dfp-lb", [
+        [970, 90],
+        [728, 90],
+        [970, 250]
+    ], "div-gpt-ad-otosia-lb").addService(googletag.pubads()).setTargeting("leaderboard_type", ["direct"]);
+    
+    googletag.defineOutOfPageSlot("/36504930/www.otosia.com/dfp-lFloating", "div-gpt-ad-otosia-lFloating-oop").addService(googletag.pubads());
+    googletag.defineOutOfPageSlot("/36504930/www.otosia.com/dfp-marcomm1", "div-gpt-ad-otosia-marcomm1-oop").addService(googletag.pubads()), 
+    googletag.defineOutOfPageSlot("/36504930/www.otosia.com/dfp-marcomm2", "div-gpt-ad-otosia-marcomm2-oop").addService(googletag.pubads()), 
+    googletag.defineOutOfPageSlot("/36504930/www.otosia.com/dfp-newsTag1", "div-gpt-ad-otosia-newsTag1-oop").addService(googletag.pubads()), 
+    googletag.defineOutOfPageSlot("/36504930/www.otosia.com/dfp-newsTag2", "div-gpt-ad-otosia-newsTag2-oop").addService(googletag.pubads());
+
+    googletag.pubads().addEventListener("slotRenderEnded", function(event) {
+
+          /** RENDERED */
+          if (event.slot == gam_immersive) {
+              if (event.isEmpty) {
+                  var gam_billboard = googletag.defineOutOfPageSlot(GAMLibrary.dfpBillboard, "div-gpt-ad-otosia-billboard-oop").addService(googletag.pubads()), 
+                  gam_topfrm = googletag.defineOutOfPageSlot(GAMLibrary.dfpTopfrm, "div-gpt-ad-otosia-topfrm-oop").addService(googletag.pubads()), 
+                  gam_bottomfrm = googletag.defineOutOfPageSlot(GAMLibrary.dfpBottomfrm, "div-gpt-ad-otosia-bottomfrm-oop").addService(googletag.pubads());
+                  
+                  googletag.cmd.push(function() {googletag.display("div-gpt-ad-otosia-billboard-oop")});
+                  googletag.cmd.push(function() {googletag.display("div-gpt-ad-otosia-topfrm-oop")});
+                  googletag.cmd.push(function() {googletag.display("div-gpt-ad-otosia-bottomfrm-oop")}); 
+
+                  /* EXCLUDE SKINAD IN TABLET */
+          if(!GAMisTablet){
+                      var gam_skinad = googletag.defineOutOfPageSlot(GAMLibrary.dfpSkinad, "div-gpt-ad-otosia-skinad-oop").addService(googletag.pubads()); 
+                      googletag.cmd.push(function() {googletag.display("div-gpt-ad-otosia-skinad-oop")});
+                      googletag.pubads().refresh([gam_billboard, gam_topfrm, gam_bottomfrm, gam_skinad]);
+                  }else{
+                      googletag.pubads().refresh([gam_billboard, gam_topfrm, gam_bottomfrm]);
+                  }
+              }
+          }
       });
-
-      var userAgent = navigator.userAgent.toLowerCase();
-      const GAMisTablet = /(ipad|tablet|(android(?!.*mobile))|(windows(?!.*phone)(.*touch))|kindle|playbook|silk|(puffin(?!.*(IP|AP|WP))))/.test(userAgent);
-
-      var gam_immersive = googletag.defineOutOfPageSlot(GAMLibrary.gamImmersive, 'div-gpt-ad-otosia-immersive-oop').addService(googletag.pubads());
-
-      googletag.defineSlot("/36504930/www.otosia.com/dfp-sc1", [[300, 600],[300, 250],[160, 600]], "div-gpt-ad-otosia-sc1").addService(googletag.pubads()), 
-      googletag.defineSlot("/36504930/www.otosia.com/dfp-sc2", [[300, 250],[250, 250]], "div-gpt-ad-otosia-sc2").addService(googletag.pubads()); 
-      googletag.defineSlot("/36504930/www.otosia.com/dfp-lb", [
-          [970, 90],
-          [728, 90],
-          [970, 250]
-      ], "div-gpt-ad-otosia-lb").addService(googletag.pubads()).setTargeting("leaderboard_type", ["direct"]);
-      
-      googletag.defineOutOfPageSlot("/36504930/www.otosia.com/dfp-lFloating", "div-gpt-ad-otosia-lFloating-oop").addService(googletag.pubads());
-      googletag.defineOutOfPageSlot("/36504930/www.otosia.com/dfp-marcomm1", "div-gpt-ad-otosia-marcomm1-oop").addService(googletag.pubads()), 
-      googletag.defineOutOfPageSlot("/36504930/www.otosia.com/dfp-marcomm2", "div-gpt-ad-otosia-marcomm2-oop").addService(googletag.pubads()), 
-      googletag.defineOutOfPageSlot("/36504930/www.otosia.com/dfp-newsTag1", "div-gpt-ad-otosia-newsTag1-oop").addService(googletag.pubads()), 
-      googletag.defineOutOfPageSlot("/36504930/www.otosia.com/dfp-newsTag2", "div-gpt-ad-otosia-newsTag2-oop").addService(googletag.pubads());
-
-      googletag.pubads().addEventListener("slotRenderEnded", function(event) {
-
-            /** RENDERED */
-            if (event.slot == gam_immersive) {
-                if (event.isEmpty) {
-                    var gam_billboard = googletag.defineOutOfPageSlot(GAMLibrary.dfpBillboard, "div-gpt-ad-otosia-billboard-oop").addService(googletag.pubads()), 
-                    gam_topfrm = googletag.defineOutOfPageSlot(GAMLibrary.dfpTopfrm, "div-gpt-ad-otosia-topfrm-oop").addService(googletag.pubads()), 
-                    gam_bottomfrm = googletag.defineOutOfPageSlot(GAMLibrary.dfpBottomfrm, "div-gpt-ad-otosia-bottomfrm-oop").addService(googletag.pubads());
-                    
-                    googletag.cmd.push(function() {googletag.display("div-gpt-ad-otosia-billboard-oop")});
-                    googletag.cmd.push(function() {googletag.display("div-gpt-ad-otosia-topfrm-oop")});
-                    googletag.cmd.push(function() {googletag.display("div-gpt-ad-otosia-bottomfrm-oop")}); 
-
-                    /* EXCLUDE SKINAD IN TABLET */
-            if(!GAMisTablet){
-                        var gam_skinad = googletag.defineOutOfPageSlot(GAMLibrary.dfpSkinad, "div-gpt-ad-otosia-skinad-oop").addService(googletag.pubads()); 
-                        googletag.cmd.push(function() {googletag.display("div-gpt-ad-otosia-skinad-oop")});
-                        googletag.pubads().refresh([gam_billboard, gam_topfrm, gam_bottomfrm, gam_skinad]);
-                    }else{
-                        googletag.pubads().refresh([gam_billboard, gam_topfrm, gam_bottomfrm]);
-                    }
-                }
-            }
-        });
-                 
-        /*  START TARGETING BLOCK   */
-        if (isMatcont) { googletag.pubads().setTargeting("isMatcont", ["1"]);}
-        if(typeof Krux !== "undefined"){
-          googletag.pubads().setTargeting('ksg', Krux.segments);
-          googletag.pubads().setTargeting('kuid', Krux.user);
-        }
-        googletag.pubads().setTargeting("tags",tagForAds);
-        googletag.pubads().setTargeting("currentUrl", urlPath);
-        googletag.pubads().setTargeting("type", kly.gtm.type);
-        googletag.pubads().setTargeting("pageType", kly.pageType);
-        googletag.pubads().setTargeting("channel", kly.gtm.subCategory);
-        googletag.pubads().setTargeting("audience", kly.gtm.audience ? kly.gtm.audience.split("|") : "false");
-        googletag.pubads().setTargeting("isAdvertorial", typeof (isAdvertorial = kly.article && kly.article.isAdvertorial.toString()) === "undefined" ? "false" :  isAdvertorial);   
-        googletag.pubads().setTargeting("isMultipage", typeof (isMultipage = kly.article && kly.article.isMultipage.toString()) === "undefined" ? "false" : isMultipage );
-        googletag.pubads().setTargeting("articleId", kly.gtm.articleId.toString());
-        googletag.pubads().setTargeting("pagingNum", typeof (pageParam = kly.gtm.pageParam && kly.gtm.pageParam.toString()) === "undefined" ? "false" : pageParam );
-        /*  END TARGETING BLOCK   */
-      
-        googletag.pubads().setCentering(true);
-        googletag.pubads().enableSingleRequest();
-        googletag.enableServices();
-    }); 
-  }
+               
+      /*  START TARGETING BLOCK   */
+      if (isMatcont) { googletag.pubads().setTargeting("isMatcont", ["1"]);}
+      if(typeof Krux !== "undefined"){
+        googletag.pubads().setTargeting('ksg', Krux.segments);
+        googletag.pubads().setTargeting('kuid', Krux.user);
+      }
+      googletag.pubads().setTargeting("tags",tagForAds);
+      googletag.pubads().setTargeting("currentUrl", urlPath);
+      googletag.pubads().setTargeting("type", kly.gtm.type);
+      googletag.pubads().setTargeting("pageType", kly.pageType);
+      googletag.pubads().setTargeting("channel", kly.gtm.subCategory);
+      googletag.pubads().setTargeting("audience", kly.gtm.audience ? kly.gtm.audience.split("|") : "false");
+      googletag.pubads().setTargeting("isAdvertorial", typeof (isAdvertorial = kly.article && kly.article.isAdvertorial.toString()) === "undefined" ? "false" :  isAdvertorial);   
+      googletag.pubads().setTargeting("isMultipage", typeof (isMultipage = kly.article && kly.article.isMultipage.toString()) === "undefined" ? "false" : isMultipage );
+      googletag.pubads().setTargeting("articleId", kly.gtm.articleId.toString());
+      googletag.pubads().setTargeting("pagingNum", typeof (pageParam = kly.gtm.pageParam && kly.gtm.pageParam.toString()) === "undefined" ? "false" : pageParam );
+      /*  END TARGETING BLOCK   */
+    
+      googletag.pubads().setCentering(true);
+      googletag.pubads().enableSingleRequest();
+      googletag.enableServices();
+  }); 
 
   googletag.cmd.push(function() {
       googletag.display("div-gpt-ad-otosia-immersive-oop")
