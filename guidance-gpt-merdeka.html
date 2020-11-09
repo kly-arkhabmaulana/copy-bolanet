@@ -29,6 +29,18 @@
             <li class="nav-item" role="presentation">
                 <a class="nav-link" id="showcase-tab" data-toggle="tab" href="#showcase" role="tab" aria-controls="showcase" aria-selected="false">Showcase</a>
             </li>
+            <li class="nav-item" role="presentation">
+                <a class="nav-link" id="bottomfrm-tab" data-toggle="tab" href="#bottomfrm" role="tab" aria-controls="bottomfrm" aria-selected="false">Bottom Frame</a>
+            </li>
+            <li class="nav-item" role="presentation">
+                <a class="nav-link" id="exposer1-tab" data-toggle="tab" href="#exposer1" role="tab" aria-controls="exposer1" aria-selected="false">Exposer1</a>
+            </li>
+            <li class="nav-item" role="presentation">
+                <a class="nav-link" id="exposer2-tab" data-toggle="tab" href="#exposer2" role="tab" aria-controls="exposer2" aria-selected="false">Exposer2</a>
+            </li>
+            <li class="nav-item" role="presentation">
+                <a class="nav-link" id="overlay-tab" data-toggle="tab" href="#overlay" role="tab" aria-controls="overlay" aria-selected="false">Overlay</a>
+            </li>
         </ul>
         <div class="tab-content" id="myTabContent">
             <div class="tab-pane fade show active" id="gpt" role="tabpanel" aria-labelledby="gpt-tab">
@@ -612,6 +624,54 @@
                         &lt;script&gt;
                             googletag.cmd.push(function() {
                                 googletag.display('div-gpt-ad-merdeka-sc');
+                            });
+                        &lt;/script&gt;
+                    </code>
+                </pre>        
+            </div>
+            <div class="tab-pane fade" id="bottomfrm" role="tabpanel" aria-labelledby="bottomfrm-tab">
+                <pre>
+                    <code class="xml">
+                        !!-- LETAKAN DIDALAM CONTAINER BOTTOM FRAME --!!
+                        &lt;script&gt;
+                            googletag.cmd.push(function() {
+                                googletag.display('div-gpt-ad-merdeka-bottomfrm');
+                            });
+                        &lt;/script&gt;
+                    </code>
+                </pre>        
+            </div>
+            <div class="tab-pane fade" id="exposer1" role="tabpanel" aria-labelledby="exposer1-tab">
+                <pre>
+                    <code class="xml">
+                        !!-- LETAKAN DIDALAM CONTAINER EXPOSER1 --!!
+                        &lt;script&gt;
+                            googletag.cmd.push(function() {
+                                googletag.display('div-gpt-ad-merdeka-dfp-exposer-slot1-oop');
+                            });
+                        &lt;/script&gt;
+                    </code>
+                </pre>        
+            </div>
+            <div class="tab-pane fade" id="exposer2" role="tabpanel" aria-labelledby="exposer2-tab">
+                <pre>
+                    <code class="xml">
+                        !!-- LETAKAN DIDALAM CONTAINER EXPOSER2 --!!
+                        &lt;script&gt;
+                            googletag.cmd.push(function() {
+                                googletag.display('div-gpt-ad-merdeka-dfp-exposer-slot2-oop');
+                            });
+                        &lt;/script&gt;
+                    </code>
+                </pre>        
+            </div>
+            <div class="tab-pane fade" id="overlay" role="tabpanel" aria-labelledby="overlay-tab">
+                <pre>
+                    <code class="xml">
+                        !!-- LETAKAN DIDALAM CONTAINER OVERLAY --!!
+                        &lt;script&gt;
+                            googletag.cmd.push(function() {
+                                googletag.display('div-gpt-ad-dfp-overlay-oop');
                             });
                         &lt;/script&gt;
                     </code>
