@@ -33,12 +33,10 @@
                         &lt;script&gt;
                             window.googletag = window.googletag || {cmd: []};
                             googletag.cmd.push(function() {
-                                var urlPath = document.URL;
                                 googletag.defineSlot('/36504930/microsite/mobile/dfp-bottomfrm', [320, 50], 'div-gpt-ad-mobile-microsite-bottomfrm').addService(googletag.pubads());
                                 googletag.defineSlot('/36504930/microsite/mobile/dfp-sc', [300, 250], 'div-gpt-ad-mobile-microsite-sc').addService(googletag.pubads());
                                 googletag.defineSlot('/36504930/microsite/desktop/dfp-lb', [970, 90], 'div-gpt-ad-desktop-microsite-lb').addService(googletag.pubads());
                                 googletag.defineSlot('/36504930/microsite/desktop/dfp-lb', [970, 250], 'div-gpt-ad-desktop-microsite-lb2').addService(googletag.pubads());
-                                googletag.pubads().setTargeting("currentUrl", urlPath);
                                 googletag.enableServices();
                             });
                         &lt;/script&gt;
