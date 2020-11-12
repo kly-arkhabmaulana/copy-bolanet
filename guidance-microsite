@@ -1,0 +1,134 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+    <link rel="stylesheet" href="pojoaque.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+</head>
+<body>
+    <div class="container">
+        <ul class="nav nav-tabs mt-5" id="myTab" role="tablist">
+            <li class="nav-item" role="presentation">
+                <a class="nav-link active" id="gpt-tab" data-toggle="tab" href="#gpt" role="tab" aria-controls="gpt" aria-selected="true">GPT</a>
+            </li>
+            <li class="nav-item" role="presentation">
+                <a class="nav-link" id="first-tab" data-toggle="tab" href="#first" role="tab" aria-controls="first" aria-selected="false">320x50 & 970x90</a>
+            </li>
+            <li class="nav-item" role="presentation">
+                <a class="nav-link" id="second-tab" data-toggle="tab" href="#second" role="tab" aria-controls="second" aria-selected="false">300x250 & 970x250</a>
+            </li>
+        </ul>
+        <div class="tab-content" id="myTabContent">
+            <div class="tab-pane fade show active" id="gpt" role="tabpanel" aria-labelledby="gpt-tab">
+                <pre>
+                    <code class="xml">
+                        !!-- LETAKAN DI HEAD --!!
+                        
+                        &lt;!-- GPT START --&gt;
+                        &lt;script async src="https://securepubads.g.doubleclick.net/tag/js/gpt.js"&gt;&lt;script&gt;
+                        &lt;script&gt;
+                            window.googletag = window.googletag || {cmd: []};
+                            googletag.cmd.push(function() {
+                                var urlPath = document.URL;
+                                googletag.defineSlot('/36504930/microsite/mobile/dfp-bottomfrm', [320, 50], 'div-gpt-ad-mobile-microsite-bottomfrm').addService(googletag.pubads());
+                                googletag.defineSlot('/36504930/microsite/mobile/dfp-sc', [300, 250], 'div-gpt-ad-mobile-microsite-sc').addService(googletag.pubads());
+                                googletag.defineSlot('/36504930/microsite/desktop/dfp-lb', [970, 90], 'div-gpt-ad-desktop-microsite-lb').addService(googletag.pubads());
+                                googletag.defineSlot('/36504930/microsite/desktop/dfp-lb', [970, 250], 'div-gpt-ad-desktop-microsite-lb2').addService(googletag.pubads());
+                                googletag.pubads().setTargeting("currentUrl", urlPath);
+                                googletag.enableServices();
+                            });
+                        &lt;/script&gt;
+                        &lt;!-- GPT END --&gt;
+                    </code>
+                </pre>
+            </div>
+            <div class="tab-pane fade" id="first" role="tabpanel" aria-labelledby="first-tab">
+                <pre>
+                    <code class="xml">
+                        !!-- REPLACE SCRIPT BERIKUT --!!
+
+                        &lt;div class="banner"&gt;
+                            &lt;div class="hide-lg"&gt;&lt;img src="https://placehold.it/320x50?text=320x50"&gt;&lt;/div&gt;    
+                            &lt;div class="visible-lg"&gt;&lt;img src="https://placehold.it/970x90?text=970x90"&gt;&lt;/div&gt;
+                        &lt;/div&gt;
+
+                        !!-- DENGAN SCRIPT BERIKUT --!!
+
+                        &lt;div class="banner"&gt;
+                            &lt;div class="hide-lg"&gt;
+                                &lt;!-- START - BOTTOM FRAME --&gt;
+                                &lt;div id="div-gpt-ad-mobile-microsite-bottomfrm"&gt;
+                                    &lt;script&gt;
+                                        googletag.cmd.push(function() {
+                                            googletag.display('div-gpt-ad-mobile-microsite-bottomfrm');
+                                        });
+                                    &lt;/script&gt;
+                                &lt;/div&gt;
+                                &lt;!-- END - BOTTOM FRAME --&gt;
+                            &lt;/div&gt;    
+                            &lt;div class="visible-lg"&gt;
+                                &lt;!-- START - LEADERBOARD --&gt;
+                                &lt;div id="div-gpt-ad-desktop-microsite-lb"&gt;
+                                    &lt;script&gt;
+                                        googletag.cmd.push(function() {
+                                            googletag.display('div-gpt-ad-desktop-microsite-lb');
+                                        });
+                                    &lt;/script&gt;
+                                &lt;/div&gt;
+                                &lt;!-- END - LEADERBOARD --&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+                    </code>
+                </pre>        
+            </div>
+            <div class="tab-pane fade" id="second" role="tabpanel" aria-labelledby="second-tab">
+                <pre>
+                    <code class="xml">
+                        !!-- REPLACE SCRIPT BERIKUT --!!
+
+                        &lt;div class="banner"&gt;
+                            &lt;div class="hide-lg"&gt;&lt;img src="https://placehold.it/300x150?text=300x150"&gt;&lt;/div&gt;    
+                            &lt;div class="visible-lg"&gt;&lt;img src="https://placehold.it/970x250?text=970x250"&gt;&lt;/div&gt;
+                        &lt;/div&gt;
+
+                        !!-- DENGAN SCRIPT BERIKUT --!!
+                        
+                        &lt;div class="banner"&gt;
+                            &lt;div class="hide-lg"&gt;
+                                &lt;!-- START - SHOWCASE --&gt;
+                                &lt;div id="div-gpt-ad-mobile-microsite-sc"&gt;
+                                    &lt;script&gt;
+                                        googletag.cmd.push(function() {
+                                            googletag.display('div-gpt-ad-mobile-microsite-sc');
+                                        });
+                                    &lt;/script&gt;
+                                &lt;/div&gt;
+                                &lt;!-- END - BOTTOM FRAME --&gt;
+                            &lt;/div&gt;    
+                            &lt;div class="visible-lg"&gt;
+                                &lt;!-- START - LEADERBOARD 2 --&gt;
+                                &lt;div id="div-gpt-ad-desktop-microsite-lb2"&gt;
+                                    &lt;script&gt;
+                                        googletag.cmd.push(function() {
+                                            googletag.display('div-gpt-ad-desktop-microsite-lb2');
+                                        });
+                                    &lt;/script&gt;
+                                &lt;/div&gt;
+                                &lt;!-- END - LEADERBOARD --&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+                    </code>
+                </pre>        
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+</html>
