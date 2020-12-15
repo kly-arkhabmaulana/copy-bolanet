@@ -896,7 +896,6 @@ window.kmklabs.related_system = 'tag';
                                                             if (scrollTop >= "200") {
                                                                 this.timedBottomFrm = googletag.defineSlot(this.dfpBottomFrame, [[320, 50],[320, 100]], 'div-gpt-ad-fimela-bottomfrm').addService(googletag.pubads());
                                                                 window.removeEventListener("scroll", this.scrollHandler);
-                                                                // googletag.display('div-gpt-ad-fimela-bottomfrm');
                                                                 googletag.pubads().refresh([this.timedBottomFrm]);
 
                                                                 this.refreshSlot = this.timedBottomFrm;
@@ -1340,15 +1339,25 @@ window.kmklabs.related_system = 'tag';
 <!-- END KLY VISUAL STORY --></div><div class="channel-ad channel-ad_ad-hbf" data-info="ad" data-component-name="mobile:channel-ad"><!-- START KLY MOBILE BOTTOMFRAME -->
 <!-- /36504930/m.fimela.com/dfp-bottomfrm -->
 <!--div id="div-gpt-ad-fimela-bottomfrm"></div-->
-<script>
+<!-- <script>
   var dgaFimelaBf = document.createElement("div");
   dgaFimelaBf.id = "div-gpt-ad-fimela-bottomfrm";
   dgaFimelaBf.setAttribute("class","channel-ad channel-ad_ad-hbf dfp-hbf"); 
   dgaFimelaBf.setAttribute("data-info","ad");
   dgaFimelaBf.setAttribute("data-component-name","mobile:channel-ad");
   document.body.insertAdjacentElement("beforeEnd",dgaFimelaBf);
-</script>
-<!-- END KLY MOBILE BOTTOMFRAME --></div></div><div class="back-to-top" data-component="mobile:back-to-top" data-component-name="mobile:back-to-top"><a href="#back-to-top" class="back-to-top__link js-back-to-top"><i class="back-to-top__icon i-back-to-top"></i></a></div></div><script id="custom-javascript" type="text/javascript">/*** START of [ADS] Additional script for banner ****/
+</script> -->
+<!-- END KLY MOBILE BOTTOMFRAME --></div></div><div class="back-to-top" data-component="mobile:back-to-top" data-component-name="mobile:back-to-top"><a href="#back-to-top" class="back-to-top__link js-back-to-top"><i class="back-to-top__icon i-back-to-top"></i></a></div></div>
+
+<div id="div-gpt-ad-fimela-bottomfrm" class="channel-ad channel-ad_ad-hbf dfp-hbf" data-info="ad" data-component-name="mobile:channel-ad">
+    <script>
+        googletag.cmd.push(function() {
+            googletag.display('div-gpt-ad-fimela-bottomfrm');
+        });
+    </script>
+</div>
+
+<script id="custom-javascript" type="text/javascript">/*** START of [ADS] Additional script for banner ****/
 function DFP_addExposerContainer(siblings, divcontainer, pos = "before",idx = 0 ){
 	var dfp_exposer = document.createElement('div'),
 	dfp_exposerSiblings =  document.getElementsByClassName(siblings)[idx];
