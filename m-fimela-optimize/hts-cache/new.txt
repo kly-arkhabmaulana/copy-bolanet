@@ -1,0 +1,3 @@
+date	size'/'remotesize	flags(request:Update,Range state:File response:Modified,Chunked,gZipped)	statuscode	status ('servermsg')	MIME	Etag|Date	URL	localfile	(from URL)
+09:38:40	461981/461981	---M-Z	200	added ('OK')	text/html	date:Mon,%2014%20Dec%202020%2002:38:34%20GMT	https://m.fimela.com/	C:/xampp/htdocs/clone-site/m-fimela-optimize/index-2.html	(from )
+09:38:41	544/544	---M--	200	added ('OK')	text/txt	date:Mon,%2014%20Dec%202020%2002:38:33%20GMT	https://m.fimela.com/robots.txt		(from )
