@@ -630,7 +630,6 @@
                                                                                 if (scrollTop >= "200") {
                                                                                     this.timedBottomFrm = googletag.defineSlot(this.dfpBottomFrame, [[320, 50],[320, 100]], 'div-gpt-ad-fimela-bottomfrm').addService(googletag.pubads());
                                                                                     window.removeEventListener("scroll", this.scrollHandler);
-                                                                                    // googletag.display('div-gpt-ad-fimela-bottomfrm');
                                                                                     googletag.pubads().refresh([this.timedBottomFrm]);
                     
                                                                                     this.refreshSlot = this.timedBottomFrm;
