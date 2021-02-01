@@ -112,9 +112,6 @@
                 <a class="nav-link" id="topframe-tab" data-toggle="tab" href="#topframe" role="tab" aria-controls="topframe" aria-selected="false">Top Frame</a>
             </li>
             <li class="nav-item" role="presentation">
-                <a class="nav-link" id="showcase-tab" data-toggle="tab" href="#showcase" role="tab" aria-controls="showcase" aria-selected="false">Showcase</a>
-            </li>
-            <li class="nav-item" role="presentation">
                 <a class="nav-link" id="overlay-tab" data-toggle="tab" href="#overlay" role="tab" aria-controls="overlay" aria-selected="false">Overlay</a>
             </li>
             <li class="nav-item" role="presentation">
@@ -134,6 +131,9 @@
             </li>
             <li class="nav-item" role="presentation">
                 <a class="nav-link" id="highlight2-tab" data-toggle="tab" href="#highlight2" role="tab" aria-controls="highlight2" aria-selected="false">Highlight 2</a>
+            </li>
+	    <li class="nav-item" role="presentation">
+                <a class="nav-link" id="showcase-tab" data-toggle="tab" href="#showcase" role="tab" aria-controls="showcase" aria-selected="false">Showcase</a>
             </li>
             <li class="nav-item" role="presentation">
                 <a class="nav-link" id="bottomfrm-tab" data-toggle="tab" href="#bottomfrm" role="tab" aria-controls="bottomfrm" aria-selected="false">Bottom Frame</a>
@@ -964,19 +964,6 @@
                     </code>
                 </pre>        
             </div>
-            <div class="tab-pane fade" id="showcase" role="tabpanel" aria-labelledby="showcase-tab">
-                <pre>
-                    <code class="xml">
-                        !!-- LETAKAN DIDALAM CONTAINER SHOWCASE --!!
-
-                        &lt;script&gt;
-                            googletag.cmd.push(function() {
-                                googletag.display('div-gpt-ad-fimela-sc-1');
-                            });
-                        &lt;/script&gt;
-                    </code>
-                </pre>        
-            </div>
             <div class="tab-pane fade" id="overlay" role="tabpanel" aria-labelledby="overlay-tab">
                 <pre>
                     <code class="xml">
@@ -1065,6 +1052,21 @@
                                 googletag.display('div-gpt-ad-fimela-dfp-highlight-2');
                             });
                         &lt;/script&gt;
+                    </code>
+                </pre>        
+            </div>
+ 	    <div class="tab-pane fade" id="showcase" role="tabpanel" aria-labelledby="showcase-tab">
+                <pre>
+                    <code class="xml">
+                        !!-- LETAKAN DIDALAM CONTAINER SHOWCASE "div-gpt-ad-fimela-sc-1" (HARDCODE) --!!
+
+			&lt;!-- START - DFP SHOWCASE --&gt;
+                        &lt;script&gt;
+                            googletag.cmd.push(function() {
+                                googletag.display('div-gpt-ad-fimela-sc-1');
+                            });
+                        &lt;/script&gt;
+			&lt;!-- END - DFP SHOWCASE --&gt;
                     </code>
                 </pre>        
             </div>
