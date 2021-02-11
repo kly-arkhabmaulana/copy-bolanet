@@ -942,13 +942,6 @@
                                 
                             });
                     
-                            googletag.cmd.push(function() {
-                                googletag.display('div-gpt-ad-fimela-newstag1');
-                            });
-                            googletag.cmd.push(function() {
-                                googletag.display('div-gpt-ad-fimela-newstag2');
-                            });
-                    
                             /* ============ HEADLINE STICKY - DEFAULT 3s ============ */
                             var headlineStickyInterval=5,headlineStickyStatus=!1;function headlineSticky(a){null!=a&&(headlineStickyInterval=a),console.log(headlineStickyInterval);var b=document.getElementById("div-gpt-ad-fimela-hl-1"),c=document.createElement("div");c.setAttribute("id","div-gpt-ad-fimela-hl-1-shadow"),b.parentElement.insertBefore(c,b),injectStickyStyleAndAnimation(),window.addEventListener("scroll",headlineStickyScrollEevent)}function headlineStickyScrollEevent(){var a=document.getElementById("div-gpt-ad-fimela-hl-1"),b=document.getElementById("div-gpt-ad-fimela-hl-1-shadow"),c=b.getBoundingClientRect().top,d=document.querySelector(".layout__nav-content"),e=document.documentElement.scrollTop||document.body.scrollTop;headlineStickyStatus?0>=c||(window.removeEventListener("scroll",headlineStickyScrollEevent),removeStickyHeadline(a,!1)):0>=c&&(a.classList.add("hl-active-sticky"),a.style="",removeStickyHeadline(a,!0),headlineStickyStatus=!0)}function removeStickyHeadline(a,b){var c=setInterval(function(){0>=headlineStickyInterval?(a.classList.remove("hl-active-sticky"),a.classList.remove("hl-navbar-hanging"),a.style.margin="10px 0",clearInterval(c),window.removeEventListener("scroll",headlineStickyScrollEevent)):headlineStickyInterval--},1e3);b||(clearInterval(c),a.classList.remove("hl-active-sticky"),a.classList.remove("hl-navbar-hanging"),a.style.margin="10px 0")}function injectStickyStyleAndAnimation(){var a=document.createElement("style");a.textContent=`
                                 .hl-active-sticky {
