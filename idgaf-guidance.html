@@ -19,8 +19,18 @@
             <div class="tab-pane fade show active" id="gpt" role="tabpanel" aria-labelledby="gpt-tab">
                 <pre>
                     <code class="xml">
-    !!-- LETAKAN DI HEAD --!!
-
+    &lt;!-- LETAKKAN DIAKHIR SCRIPT GPT --&gt;
+    &lt;script&gt;                    
+        setInterval(function () {
+            googletag.cmd.push(function() {
+                googletag.pubads().refresh();
+            });
+        }, 60000);
+    &lt;/script&gt;
+                    </code>
+                </pre>
+                <pre>
+                    <code class="xml">
     &lt;!-- GPT START --&gt;
     &lt;script async src="https://securepubads.g.doubleclick.net/tag/js/gpt.js"&gt;&lt;script&gt;
     &lt;script&gt;
@@ -56,13 +66,11 @@
             });
         };
 
-        //START - Refresh All Slots - 1 minutes
         setInterval(function () {
 			googletag.cmd.push(function() {
 			    googletag.pubads().refresh();
 			});
 		}, 60000);
-        //END - Refresh All Slot
     &lt;/script&gt;
     &lt;!-- GPT END --&gt;
                     </code>
