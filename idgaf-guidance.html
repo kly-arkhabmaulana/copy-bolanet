@@ -28,8 +28,6 @@
         }, 60000);
     &lt;/script&gt;
                     </code>
-                </pre>
-                <pre>
                     <code class="xml">
     &lt;!-- GPT START --&gt;
     &lt;script async src="https://securepubads.g.doubleclick.net/tag/js/gpt.js"&gt;&lt;script&gt;
@@ -66,11 +64,13 @@
             });
         };
 
+        // START - Refresh All Slots
         setInterval(function () {
-			googletag.cmd.push(function() {
-			    googletag.pubads().refresh();
-			});
-		}, 60000);
+            googletag.cmd.push(function() {
+                googletag.pubads().refresh();
+            });
+        }, 60000);
+        // END - Refresh All Slots
     &lt;/script&gt;
     &lt;!-- GPT END --&gt;
                     </code>
