@@ -1,2 +1,1 @@
-# copy-bolanet
-Bolanet site
+
