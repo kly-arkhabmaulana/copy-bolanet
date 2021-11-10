@@ -739,7 +739,7 @@ dable('sendLogOnce');
     mgidScript.src = 'https://jsc.mgid.com/l/i/liputan6.com.1227855.js';
     mgidScript.setAttribute('async',true);
 
-    if(window.location.pathname === "/" || window.kmklabs.gtm.subCategory === "root") {
+    if(window.kmklabs.gtm.subCategory === "root") {
         mgidInsertEl = ".picturefirst-widget-homepage-volume";
         mgidInsertPosition = "afterEnd";
     } else if(window.kmklabs.pageType === "ReadPage") {
@@ -747,7 +747,7 @@ dable('sendLogOnce');
         mgidInsertPosition = "beforeBegin";
     }
 
-    if(window.location.pathname === "/" || window.kmklabs.gtm.subCategory === "root" || window.kmklabs.pageType === "ReadPage") {
+    if(window.kmklabs.gtm.subCategory === "root" || window.kmklabs.pageType === "ReadPage") {
         window.onscroll = function() {
             window.onscroll = null;
             console.log("=== SCROLL INITIATE! ===");
