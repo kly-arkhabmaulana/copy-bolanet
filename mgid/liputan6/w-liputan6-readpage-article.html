@@ -87,18 +87,30 @@ dable('sendLogOnce');
 
 <!-- START - MGID SCRIPT -->
 <script>
-    var mgidDiv = document.createElement('div'),
+    var mgidInsertEl,
+    mgidInsertPosition,
+    mgidDiv = document.createElement('div'),
     mgidScript = document.createElement('script');
     mgidDiv.id = 'M459119ScriptRootC1227849';
     mgidScript.src = 'https://jsc.mgid.com/l/i/liputan6.com.1227849.js';
     mgidScript.setAttribute('async',true);
 
     if(window.kmklabs.pageType === "ReadPage") {
+        if(window.kmklabs.gtm.type === "TextTypeArticle") {
+            mgidInsertEl = ".read-page--content";
+            mgidInsertPosition = "afterEnd";
+        } else if(window.kmklabs.gtm.type === "PhotoGallery" || window.kmklabs.gtm.type === "VideoGallery") {
+            mgidInsertEl = ".tags--snippet";
+            mgidInsertPosition = "beforeBegin";
+        }
+    }
+
+    if(window.kmklabs.pageType === "ReadPage") {
         window.onscroll = function() {
             window.onscroll = null;
             console.log("=== SCROLL INITIATE & MGID RENDERED ===");
-            parent.document.querySelector(".read-page--content").insertAdjacentElement("afterEnd",mgidDiv);
-            parent.document.querySelector(".read-page--content").insertAdjacentElement("afterEnd",mgidScript);
+            parent.document.querySelector(mgidInsertEl).insertAdjacentElement(mgidInsertPosition,mgidDiv);
+            parent.document.querySelector(mgidInsertEl).insertAdjacentElement(mgidInsertPosition,mgidScript);
         }
     }
 </script>
